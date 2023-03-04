@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap-5.0.2-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -134,7 +135,7 @@
               <p class="card-text">Ultimate clarity and sound quality come together in the Nova Pro Acoustic System, raising the bar for what audio in gaming means. Our audio engineers pushed the envelope for legendary performance with Premium High Fidelity Drivers, achieving sound purity unlike any other gaming headset.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(15)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                 </div>
                 <small class="text-muted">$382</small>
@@ -151,7 +152,7 @@
               <p class="card-text">Enhance your gaming experience with cleaner, smoother sound. The HyperX™ Cloud Alpha’s dual-chamber driver system separates the bass from the mids and highs, allowing them to be tuned individually for reduced distortion.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(16)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                 </div>
                 <small class="text-muted">$100</small>
@@ -168,7 +169,7 @@
               <p class="card-text">G535 is designed for low-latency performance, freedom from wires and lasting comfort for all your gaming sessions. Enjoy advanced LIGHTSPEED wireless, 33-hour battery life,3May vary based on user and computing conditions. Battery life is based on headset volume set to 50%. and 40 mm drivers for crystal-clear and booming sound. Weighing just 236 grams with an adjustable headband and soft memory foam earpads to ensure all-day comfort.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(17)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                 </div>
                 <small class="text-muted">$130</small>
@@ -181,6 +182,10 @@
     </div>
   </div>
 
+    <!--cart placeholer -->
+    <div id="contain">
+
+    </div>
 </main>
 
 <footer class="text-muted py-5">
