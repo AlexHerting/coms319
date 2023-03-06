@@ -1,8 +1,54 @@
-/*
- * Product Name 
- */  
+
+ /* Product Name  */
+   /* body {
+    background-color: #c4c4c4;
+  
+}  */
+
+#text {
+     text-align: center;
+    /* top: 50%; 
+    right: 50%; */
+    /* transform: translate(50%,-50%); */
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 4em;
+    font-weight: 100;
+    color: #ADD8E6;
+    text-shadow: 1px 1px 1px #000080,
+        1px 2px 1px #000080,
+        1px 3px 1px #000080,
+        1px 4px 1px #000080,
+        1px 5px 1px #000080,
+        1px 6px 1px #000080,
+        1px 7px 1px #000080,
+        1px 8px 1px #000080,
+        1px 9px 1px #000080,
+        1px 10px 1px #000080,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
 
  .product-name {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color:rgb(33,37,41);
  }
+
+ #contain {
+   border: 5px solid black;
+   margin: 5%;
+ }
+
+#total {
+  font-size: 15pt;
+  text-align: right;
+  margin-right: 3vw;
+}
+
+#totHold {
+  font-size: 15pt;
+  text-align: right;
+  margin-right: 3vw;
+}
