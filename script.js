@@ -66,7 +66,7 @@ function removeItem(itemNumber) {
 const remover = document.getElementById(itemNumber);
 const total = document.getElementById("total");
 
-totalPrice = totalPrice - products.products[itemNumber - 1].price;
+totalPrice = totalPrice - products.products[itemNumber - 1].price * itemNumbers[itemNumber];
 total.textContent = totalPrice;
 
 itemNumbers[itemNumber ] = 0;
