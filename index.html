@@ -13,8 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js"></script>
+    <link href="./styles.css" rel="stylesheet">
+    <script src="./index.js"></script>
+    <script src="./index2.js"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap-5.0.2-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -105,7 +106,7 @@
           </li>
         </ul>
         <form>
-          <a class="nav-link" href="#bot">Cart<i class="fa-solid fa-cart-shopping"></i></i></a>
+          <a class="nav-link" href="#contain">Cart<i class="fa-solid fa-cart-shopping"></i></i></a>
         </form>
         <form>
           <input class="form-control" type="text" placeholder="Search" aria-label="Search">
@@ -129,11 +130,14 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
+            <div class="container"></div>
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Black.png" alt="startlight-12black">
+            <!-- <img src="./images/Starlight-12Black.png" alt="startlight-12black"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Hades</h4>
-              <p class="card-text">When it comes to mice, it is hard to beat the Medium Black Finalmouse Starlight-12 Hades mouse. The first quality about the mouse you might notice is its color and design: a sleek black with gold accents. When you pick up the Medium Black Finalmouse Starlight-12 Hades, you'll notice it is super lightweight, as it comes in at just about 47 grams. Impressively, Finalmouse didn't sacrifice performance when they created the beautifully designed and lightweight Medium Black Finalmouse Starlight-12 Hades. This mouse has faster latency than any other mouse, whether wired or wireless. And even though this mouse is for performance, you will not need to charge it very frequently. The Medium Black Finalmouse Starlight-12 Hades released in May of 2021 for $189.</p>
+              <!-- <p class="card-text">When it comes to mice, it is hard to beat the Medium Black Finalmouse Starlight-12 Hades mouse. The first quality about the mouse you might notice is its color and design: a sleek black with gold accents. When you pick up the Medium Black Finalmouse Starlight-12 Hades, you'll notice it is super lightweight, as it comes in at just about 47 grams. Impressively, Finalmouse didn't sacrifice performance when they created the beautifully designed and lightweight Medium Black Finalmouse Starlight-12 Hades. This mouse has faster latency than any other mouse, whether wired or wireless. And even though this mouse is for performance, you will not need to charge it very frequently. The Medium Black Finalmouse Starlight-12 Hades released in May of 2021 for $189.</p> -->
+              <p class="card-text" id="prodTxt1"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -147,10 +151,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Red.png" alt="startlight-12red">
+            <!-- <img src="./images/Starlight-12Red.png" alt="startlight-12red"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Ares</h4>
-              <p class="card-text">Play games on PC like never before with the Medium Red Finalmouse Starlight-12 Ares mouse. This red variant of the Legendary Finalmouse release has much to boast. Weighing just about 47 grams, it is incredibly light, but Finalmouse did not give up advanced technology for its lightweight. The Medium Red Finalmouse Starlight-12 Ares beats out all other mice when it comes to latency speeds and has great battery life. The Medium Red Finalmouse Starlight-12 Ares released in May of 2021 for $189.</p>
+              <!-- <p class="card-text">Play games on PC like never before with the Medium Red Finalmouse Starlight-12 Ares mouse. This red variant of the Legendary Finalmouse release has much to boast. Weighing just about 47 grams, it is incredibly light, but Finalmouse did not give up advanced technology for its lightweight. The Medium Red Finalmouse Starlight-12 Ares beats out all other mice when it comes to latency speeds and has great battery life. The Medium Red Finalmouse Starlight-12 Ares released in May of 2021 for $189.</p> -->
+              <p class="card-text" id="prodTxt2"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(1)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -164,10 +170,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12White.png" alt="startlight-12white">
+            <!-- <img src="./images/Starlight-12White.png" alt="startlight-12white"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Zeus</h4>
-              <p class="card-text">If you are ready to upgrade your gaming mouse, the Medium White Finalmouse Starlight-12 Zeus mouse is for you. Free from the constraints of a wire, this wireless mouse has faster latency than all other mice and has incredible battery life. With its super light magnesium alloy chassis, its construction is just as advanced as its wireless capabilities. And with its sleek white color, the Medium White Finalmouse Starlight-12 Zeus looks as good as it performs. The Medium White Finalmouse Starlight-12 Zeus released in May of 2021 for $189.</p>
+              <!-- <p class="card-text">If you are ready to upgrade your gaming mouse, the Medium White Finalmouse Starlight-12 Zeus mouse is for you. Free from the constraints of a wire, this wireless mouse has faster latency than all other mice and has incredible battery life. With its super light magnesium alloy chassis, its construction is just as advanced as its wireless capabilities. And with its sleek white color, the Medium White Finalmouse Starlight-12 Zeus looks as good as it performs. The Medium White Finalmouse Starlight-12 Zeus released in May of 2021 for $189.</p> -->
+              <p class="card-text" id="prodTxt3"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(2)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -182,10 +190,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Gold.png" alt="startlight-12gold">  
+            <!-- <img src="./images/Starlight-12Gold.png" alt="startlight-12gold">   -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Achilles</h4>
-              <p class="card-text">It makes sense that the Medium Gold Finalmouse Starlight-12 Achilles mouse is part of Finalmouse's Legendary Drop, as this mouse is truly legendary. The Medium Gold Finalmouse Starlight-12 Achilles is wireless and weighs only about 47 grams. Despite its light weight, this mouse brings the power, as it has a long-lasting battery life and is made from extremely durable magnesium alloy. The Medium Gold Finalmouse Starlight-12 Achilles released in May of 2021 with a retail price of $189.</p>
+              <!-- <p class="card-text">It makes sense that the Medium Gold Finalmouse Starlight-12 Achilles mouse is part of Finalmouse's Legendary Drop, as this mouse is truly legendary. The Medium Gold Finalmouse Starlight-12 Achilles is wireless and weighs only about 47 grams. Despite its light weight, this mouse brings the power, as it has a long-lasting battery life and is made from extremely durable magnesium alloy. The Medium Gold Finalmouse Starlight-12 Achilles released in May of 2021 with a retail price of $189.</p> -->
+              <p class="card-text" id="prodTxt4"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(3)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -199,10 +209,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Pegasus.png" alt="startlight-12pegasus">
+            <!-- <img src="./images/Starlight-12Pegasus.png" alt="startlight-12pegasus"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Pegasus</h4>
-              <p class="card-text">Take your PC gaming to the next level with the Finalmouse Starlight-12 Pegasus Wireless mouse (medium). Weighing in at 47 grams, the Starlight-12 Pegasus is one of the lightest mice in the Finalmouse catalog, ensuring lightning precision and accuracy in-game. According to Finalmouse, the mouse features a resolution (dpi) of up to 20,000, and an IPS of approximately 450+ with integrated illumination. Finalmouse estimates an average battery life of around 160 hours, or average use case of around 3 weeks of gaming. The Finalmouse Starlight-12 Pegasus (medium) is made by gamers, for gamers, engineered to be one of the best mice for eSports.</p>
+              <!-- <p class="card-text">Take your PC gaming to the next level with the Finalmouse Starlight-12 Pegasus Wireless mouse (medium). Weighing in at 47 grams, the Starlight-12 Pegasus is one of the lightest mice in the Finalmouse catalog, ensuring lightning precision and accuracy in-game. According to Finalmouse, the mouse features a resolution (dpi) of up to 20,000, and an IPS of approximately 450+ with integrated illumination. Finalmouse estimates an average battery life of around 160 hours, or average use case of around 3 weeks of gaming. The Finalmouse Starlight-12 Pegasus (medium) is made by gamers, for gamers, engineered to be one of the best mice for eSports.</p> -->
+              <p class="card-text" id="prodTxt5"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(4)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -216,10 +228,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Phantom.png" alt="startlight-12phantom">
+            <!-- <img src="./images/Starlight-12Phantom.png" alt="startlight-12phantom"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Phantom</h4>
-              <p class="card-text">The Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) features a magnesium chassis with an Ultem base. The Ultem lets the wireless signal through, but is not as strong as the magnesium top. At approximately 47 grams, the Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) provides more stability and control, with lighter and snappier clicks than its predecessors. The rechargeable Jaunch Lithium Ion battery lasts about 160 continuous hours, or about 3 weeks of average computer use. Built on a Nordic RF platform and using Godspeed Wireless technology, the Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) offers next-gen performance. </p>
+              <!-- <p class="card-text">The Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) features a magnesium chassis with an Ultem base. The Ultem lets the wireless signal through, but is not as strong as the magnesium top. At approximately 47 grams, the Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) provides more stability and control, with lighter and snappier clicks than its predecessors. The rechargeable Jaunch Lithium Ion battery lasts about 160 continuous hours, or about 3 weeks of average computer use. Built on a Nordic RF platform and using Godspeed Wireless technology, the Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) offers next-gen performance. </p> -->
+              <p class="card-text" id="prodTxt6"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(5)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -234,11 +248,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Tenz.png" alt="startlight-12tenz">
+            <!-- <img src="./images/Starlight-12Tenz.png" alt="startlight-12tenz"> -->
+            <img/>
             <div class="card-body">
-              <p class="card-text">
-                <h4 class="product-name">Starlight Pro Tenz Edition</h4>
-                The Starlight Pro Tenz edition utilizes a high end rechargable Jauch Lithium Ion battery. Due to the revolutionary engineering that went into the power optimization of the sensor, pcb, and firmware you can expect long durations without needing to charge. Continuous battery life is estimated at ~160 hours, average use case life is estimated at 3 weeks, below average use case life is estimated at 7 weeks, idle use case of ~16+ weeks.</p>
+              <h4 class="product-name">Starlight Pro Tenz Edition</h4>
+              <!-- <p class="card-text">The Starlight Pro Tenz edition utilizes a high end rechargable Jauch Lithium Ion battery. Due to the revolutionary engineering that went into the power optimization of the sensor, pcb, and firmware you can expect long durations without needing to charge. Continuous battery life is estimated at ~160 hours, average use case life is estimated at 3 weeks, below average use case life is estimated at 7 weeks, idle use case of ~16+ weeks.</p> -->
+              <p class="card-text" id="prodTxt7"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(6)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -252,10 +267,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Starlight-12Blue.png" alt="startlight-12blue">
+            <!-- <img src="./images/Starlight-12Blue.png" alt="startlight-12blue"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Starlight-12 Poseidon</h4>
-              <p class="card-text">Precision, lightweight, and accuracy are all attributes of the Finalmouse Starlight-12 Poseidon (medium). The mouse is the final release of the collection inspired by the Greek gods, following the success of Zeus, Ares and Hades mice. The Finalmouse Starlight-12 Poseidon (medium) weighs only 47 grams, the perfect lightweight mouse for competitive and professional PC gamers. As Finalmouse previously stated on its website: lighter is better. "Isaac Newton figured this out with his law of inertia. Force = Mass x Acceleration. The lighter the mouse, the faster you move to your target."</p>
+              <!-- <p class="card-text">Precision, lightweight, and accuracy are all attributes of the Finalmouse Starlight-12 Poseidon (medium). The mouse is the final release of the collection inspired by the Greek gods, following the success of Zeus, Ares and Hades mice. The Finalmouse Starlight-12 Poseidon (medium) weighs only 47 grams, the perfect lightweight mouse for competitive and professional PC gamers. As Finalmouse previously stated on its website: lighter is better. "Isaac Newton figured this out with his law of inertia. Force = Mass x Acceleration. The lighter the mouse, the faster you move to your target."</p> -->
+              <p class="card-text" id="prodTxt8"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(7)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -269,10 +286,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/TheLastLegend.png" alt="thelastlegend">
+            <!-- <img src="./images/TheLastLegend.png" alt="thelastlegend"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">The Last Legend Starlight Pro</h4>
-              <p class="card-text">FinalMouse The Last Legend Starlight Pro Medium. The centerpiece of the Starlight-12 Collection by Finalmouse.</p>
+              <!-- <p class="card-text">FinalMouse The Last Legend Starlight Pro Medium. The centerpiece of the Starlight-12 Collection by Finalmouse.</p> -->
+              <p class="card-text" id="prodTxt9"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(8)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -289,7 +308,7 @@
 
   <!--cart placeholer -->
   <div id="contain">
-    <h1 id="text">This is the temporary Shopping Cart</h1>
+    <h1 id="text">Temporary Shopping Cart</h1>
 
     <div id="totHold">
 

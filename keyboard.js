@@ -1,0 +1,56 @@
+/*
+* Uses DOM and loads the products with Javascript instead of HTML
+*/
+fetch("./data.json")
+.then(response => response.json())
+.then(prod => loadProducts(prod));
+
+function loadProducts(prod)
+{
+    for (var i = 0; i < prod.products.length; i++)
+    {
+        let name = prod.products[i].name;
+        let url = prod.products[i].url;
+        let desc = prod.products[i].description;
+
+        let prodImg = document.querySelectorAll("img");
+        // let prodImg = document.createElement("div");
+        // prodImg.innerHTML = `<img src=${url} alt=${name}></img>`;
+        let prodTxt = document.createElement("p");
+        prodTxt.innerHTML = `<p class="card-text">${desc}</p>`;
+
+        switch(prod.products[i].productId)
+        {
+            case "10":
+                prodTxt10.appendChild(prodTxt);
+                prodImg[0].src = url;
+                prodImg[0].alt = name;
+                break;
+            case "11":
+                prodTxt11.appendChild(prodTxt);
+                prodImg[1].src = url;
+                prodImg[1].alt = name;
+                break;
+            case "12":
+                prodTxt12.appendChild(prodTxt);
+                prodImg[2].src = url;
+                prodImg[2].alt = name;
+                break;
+            case "13":
+                prodTxt13.appendChild(prodTxt);
+                prodImg[3].src = url;
+                prodImg[3].alt = name;
+                break;
+            case "14":
+                prodTxt14.appendChild(prodTxt);
+                prodImg[4].src = url;
+                prodImg[4].alt = name;
+                break;
+            case "15":
+                prodTxt15.appendChild(prodTxt);
+                prodImg[5].src = url;
+                prodImg[5].alt = name;
+                break;
+        }
+    }
+}

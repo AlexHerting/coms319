@@ -13,8 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <script src="./index.js"></script>
+    <script src="./keyboard.js"></script>
    
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap-5.0.2-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -51,7 +52,7 @@
 
     
   </head>
-  <body>
+<body>
     
 <header>
   <div class="collapse bg-dark" id="navbarHeader">
@@ -105,7 +106,7 @@
           </li>
         </ul>
         <form>
-          <a class="nav-link" href="#bot">Cart<i class="fa-solid fa-cart-shopping"></i></i></a>
+          <a class="nav-link" href="#contain">Cart<i class="fa-solid fa-cart-shopping"></i></i></a>
         </form>
         <form>
           <input class="form-control" type="text" placeholder="Search" aria-label="Search">
@@ -130,10 +131,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Keychron-Q6.png">
+            <!-- <img src="./images/Keychron-Q6.png"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Keychron Q6</h4>
-              <p class="card-text">Keychron Q6 is a premium full-size and all-metal mechanical keyboard. With its all-metal CNC machined body, a full-size layout, double-gasket design, QMK/VIA support, and knob option, the Q6 meets all your practical needs and gives you a high-end typing experience.</p>
+              <!-- <p class="card-text">Keychron Q6 is a premium full-size and all-metal mechanical keyboard. With its all-metal CNC machined body, a full-size layout, double-gasket design, QMK/VIA support, and knob option, the Q6 meets all your practical needs and gives you a high-end typing experience.</p> -->
+              <p class="card-text" id="prodTxt10"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(9)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -147,10 +150,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Keychron-K10.png">
+            <!-- <img src="./images/Keychron-K10.png"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Keychron K10</h4>
-              <p class="card-text">The Keychron K10 is engineered to maximize your productivity with most popular full size layout with number pad. The hot-swappable option on Gateron G Pro Mechanical switches offers the freedom to easily personalize your typing experience without soldering.</p>
+              <!-- <p class="card-text">The Keychron K10 is engineered to maximize your productivity with most popular full size layout with number pad. The hot-swappable option on Gateron G Pro Mechanical switches offers the freedom to easily personalize your typing experience without soldering.</p> -->
+              <p class="card-text" id="prodTxt11"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(10)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -164,10 +169,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/SteelSeries-Apex-Pro.png">
+            <!-- <img src="./images/SteelSeries-Apex-Pro.png"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">Apex Pro</h4>
-              <p class="card-text">The Apex Pro is the world's fastest and most advanced full-sized keyboard performs effortlessly for all undertakings, whether you need the fastest keystrokes in gaming to destroy the competition, or deliberate presses for typing accuracy – the power is yours to wield.</p>
+              <!-- <p class="card-text">The Apex Pro is the world's fastest and most advanced full-sized keyboard performs effortlessly for all undertakings, whether you need the fastest keystrokes in gaming to destroy the competition, or deliberate presses for typing accuracy – the power is yours to wield.</p> -->
+              <p class="card-text" id="prodTxt12"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(11)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -182,10 +189,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/NuPhy-Air75.png">
+            <!-- <img src="./images/NuPhy-Air75.png"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">NuPhy Air75</h4>
-              <p class="card-text">NuPhy Air75 is an innovative 75% ultra-slim wireless mechanical keyboard. With the world’s thinnest PBT spherical keycap, low-latency 2.4G wireless connection, and hot-swappable function, Air75 aims to become the new standard for slim mechanical keyboards.</p>
+              <!-- <p class="card-text">NuPhy Air75 is an innovative 75% ultra-slim wireless mechanical keyboard. With the world’s thinnest PBT spherical keycap, low-latency 2.4G wireless connection, and hot-swappable function, Air75 aims to become the new standard for slim mechanical keyboards.</p> -->
+              <p class="card-text" id="prodTxt13"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(12)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -199,10 +208,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Royal-Kludge-RK61.png">
+            <!-- <img src="./images/Royal-Kludge-RK61.png"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">RK61</h4>
-              <p class="card-text">RK61 is a ultra-compact layout keyboard with 61 keys. Concentrated all the key functions you need in minimalist design. Save more space for your mouse moving and neat the desktop. It’s most FPS gamers' choice for this 60% gaming keyboard.</p>
+              <!-- <p class="card-text">RK61 is a ultra-compact layout keyboard with 61 keys. Concentrated all the key functions you need in minimalist design. Save more space for your mouse moving and neat the desktop. It’s most FPS gamers' choice for this 60% gaming keyboard.</p> -->
+              <p class="card-text" id="prodTxt14"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(13)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -216,10 +227,12 @@
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img src="./images/Glorious-GMMK-Pro.png">
+            <!-- <img src="./images/Glorious-GMMK-Pro.png"> -->
+            <img/>
             <div class="card-body">
               <h4 class="product-name">GMMK Pro</h4>
-              <p class="card-text">The GMMK Pro is an award-winning modular mechanical keyboard with enthusiast components and unmatched build quality. Fully customizable to your perfect look, sound, and feel.</p>
+              <!-- <p class="card-text">The GMMK Pro is an award-winning modular mechanical keyboard with enthusiast components and unmatched build quality. Fully customizable to your perfect look, sound, and feel.</p> -->
+              <p class="card-text" id="prodTxt15"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(14)">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -237,7 +250,7 @@
 
    <!--cart placeholer -->
   <div id="contain">
-    <h1 id="text">This is the temporary Shopping Cart</h1>
+    <h1 id="text">Temporary Shopping Cart</h1>
 
     <div id="totHold">
 
