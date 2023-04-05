@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="view1">
+        <!-- content for view 1 goes here -->
+        <header>
+            <div class="collapse bg-dark" id="navbarHeader">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">This website was created by Alex Herting and Ter Xun. We are both students in Com S 319, currently learning about HTML, CSS, and JavaScript. We hope to exand our knowlodge in this field and to make a fully responsive webpage for professional use. </p>
+                  </div>
+                  <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                      <li><a href="https://twitter.com/home?lang=en" class="hov">Follow on Twitter</a></li>
+                      <li><a href="https://www.facebook.com/" class="hov">Like on Facebook</a></li>
+                      <li><a href="./credits.html" class="hov">Email us</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+              <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  <strong>Mouz</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+            </div>
+          </header>
+          
+          <main>
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
+              <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                  <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./keyboard.html">Keyboards</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./headset.html">Headsets</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./credits.html">About Us</a>
+                    </li>
+                  </ul> -->
+                  <form>
+                    <button id="cart-button">Checkout</button>
+                  </form>
+                  <form>
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                  </form>
+                </div>
+              </div>
+            </nav>
+          
+            <section class="py-5 text-center container">
+              <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                  <h1 class="fw-light">Mouse Catalog</h1>
+                  <p class="lead text-muted">Welcome to our catalog of gaming gear, only the top notch, most quality items will be found on this webpage.</p>
+                </div>
+              </div>
+            </section>
+          
+            <div class="album py-5 bg-light">
+              <div class="container">
+          
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Black.png" alt="startlight-12black"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Hades</h4>
+                        <!-- <p class="card-text">When it comes to mice, it is hard to beat the Medium Black Finalmouse Starlight-12 Hades mouse. The first quality about the mouse you might notice is its color and design: a sleek black with gold accents. When you pick up the Medium Black Finalmouse Starlight-12 Hades, you'll notice it is super lightweight, as it comes in at just about 47 grams. Impressively, Finalmouse didn't sacrifice performance when they created the beautifully designed and lightweight Medium Black Finalmouse Starlight-12 Hades. This mouse has faster latency than any other mouse, whether wired or wireless. And even though this mouse is for performance, you will not need to charge it very frequently. The Medium Black Finalmouse Starlight-12 Hades released in May of 2021 for $189.</p> -->
+                        <p class="card-text" id="prodTxt1"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Red.png" alt="startlight-12red"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Ares</h4>
+                        <!-- <p class="card-text">Play games on PC like never before with the Medium Red Finalmouse Starlight-12 Ares mouse. This red variant of the Legendary Finalmouse release has much to boast. Weighing just about 47 grams, it is incredibly light, but Finalmouse did not give up advanced technology for its lightweight. The Medium Red Finalmouse Starlight-12 Ares beats out all other mice when it comes to latency speeds and has great battery life. The Medium Red Finalmouse Starlight-12 Ares released in May of 2021 for $189.</p> -->
+                        <p class="card-text" id="prodTxt2" style="padding-bottom: 128px;"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12White.png" alt="startlight-12white"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Zeus</h4>
+                        <!-- <p class="card-text">If you are ready to upgrade your gaming mouse, the Medium White Finalmouse Starlight-12 Zeus mouse is for you. Free from the constraints of a wire, this wireless mouse has faster latency than all other mice and has incredible battery life. With its super light magnesium alloy chassis, its construction is just as advanced as its wireless capabilities. And with its sleek white color, the Medium White Finalmouse Starlight-12 Zeus looks as good as it performs. The Medium White Finalmouse Starlight-12 Zeus released in May of 2021 for $189.</p> -->
+                        <p class="card-text" id="prodTxt3" style="padding-bottom: 104px;"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Gold.png" alt="startlight-12gold">   -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Achilles</h4>
+                        <!-- <p class="card-text">It makes sense that the Medium Gold Finalmouse Starlight-12 Achilles mouse is part of Finalmouse's Legendary Drop, as this mouse is truly legendary. The Medium Gold Finalmouse Starlight-12 Achilles is wireless and weighs only about 47 grams. Despite its light weight, this mouse brings the power, as it has a long-lasting battery life and is made from extremely durable magnesium alloy. The Medium Gold Finalmouse Starlight-12 Achilles released in May of 2021 with a retail price of $189.</p> -->
+                        <p class="card-text" id="prodTxt4" style="padding-bottom: 81px;"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Pegasus.png" alt="startlight-12pegasus"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Pegasus</h4>
+                        <!-- <p class="card-text">Take your PC gaming to the next level with the Finalmouse Starlight-12 Pegasus Wireless mouse (medium). Weighing in at 47 grams, the Starlight-12 Pegasus is one of the lightest mice in the Finalmouse catalog, ensuring lightning precision and accuracy in-game. According to Finalmouse, the mouse features a resolution (dpi) of up to 20,000, and an IPS of approximately 450+ with integrated illumination. Finalmouse estimates an average battery life of around 160 hours, or average use case of around 3 weeks of gaming. The Finalmouse Starlight-12 Pegasus (medium) is made by gamers, for gamers, engineered to be one of the best mice for eSports.</p> -->
+                        <p class="card-text" id="prodTxt5"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Phantom.png" alt="startlight-12phantom"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Phantom</h4>
+                        <!-- <p class="card-text">The Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) features a magnesium chassis with an Ultem base. The Ultem lets the wireless signal through, but is not as strong as the magnesium top. At approximately 47 grams, the Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) provides more stability and control, with lighter and snappier clicks than its predecessors. The rechargeable Jaunch Lithium Ion battery lasts about 160 continuous hours, or about 3 weeks of average computer use. Built on a Nordic RF platform and using Godspeed Wireless technology, the Finalmouse Starlight-12 Phantom Wireless Mouse (Medium) offers next-gen performance. </p> -->
+                        <p class="card-text" id="prodTxt6"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Tenz.png" alt="startlight-12tenz"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight Pro Tenz Edition</h4>
+                        <!-- <p class="card-text">The Starlight Pro Tenz edition utilizes a high end rechargable Jauch Lithium Ion battery. Due to the revolutionary engineering that went into the power optimization of the sensor, pcb, and firmware you can expect long durations without needing to charge. Continuous battery life is estimated at ~160 hours, average use case life is estimated at 3 weeks, below average use case life is estimated at 7 weeks, idle use case of ~16+ weeks.</p> -->
+                        <p class="card-text" id="prodTxt7" style="padding-bottom: 55px;"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/Starlight-12Blue.png" alt="startlight-12blue"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name">Starlight-12 Poseidon</h4>
+                        <!-- <p class="card-text">Precision, lightweight, and accuracy are all attributes of the Finalmouse Starlight-12 Poseidon (medium). The mouse is the final release of the collection inspired by the Greek gods, following the success of Zeus, Ares and Hades mice. The Finalmouse Starlight-12 Poseidon (medium) weighs only 47 grams, the perfect lightweight mouse for competitive and professional PC gamers. As Finalmouse previously stated on its website: lighter is better. "Isaac Newton figured this out with his law of inertia. Force = Mass x Acceleration. The lighter the mouse, the faster you move to your target."</p> -->
+                        <p class="card-text" id="prodTxt8"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                      <!-- <img src="./images/TheLastLegend.png" alt="thelastlegend"> -->
+                      <img/>
+                      <div class="card-body">
+                        <h4 class="product-name" style="padding-top: 115px;">The Last Legend Starlight Pro</h4>
+                        <!-- <p class="card-text">FinalMouse The Last Legend Starlight Pro Medium. The centerpiece of the Starlight-12 Collection by Finalmouse.</p> -->
+                        <p class="card-text" id="prodTxt9" style="padding-bottom: 202px;"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">+</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(0)">-</button>
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                          </div>
+                          <small class="text-muted">$189</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <h1>1</h1>
+
+      </div>
+      
+
+
+      <div id="view2" style="display: none;">
+        <!-- content for view 2 goes here -->
+
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                            <div class="col align-self-center text-right text-muted">3 items</div>
+                        </div>
+                    </div>    
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div><h5><b>Summary</b></h5></div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" style="padding-left:0;">ITEMS 3</div>
+                        <div class="col text-right">&euro; 132.00</div>
+                    </div>
+                    <form>
+                        <p>SHIPPING</p>
+                        <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right">&euro; 137.00</div>
+                    </div>
+                    <button class="btn">CHECKOUT</button>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <h1>2</h1>
+        <button id="browser-button">Return</button>
+        <button id="confirmation-button">Order</button>
+      </div>
+      
+
+
+
+      <div id="view3"  style="display: none;">
+        <!-- content for view 3 goes here -->
+        <h1>3</h1>
+
+        <button id="browser-button1">Back To Browsing</button>
+        <button id="cart-button1">Return</button>
+      </div>
+      
+      <!-- <button id="view-button">Switch View</button> -->
+      
+
+
+
+
+      <script src="script.js"></script>
+</body>
+
+</html>
