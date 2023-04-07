@@ -50,10 +50,19 @@ function BrowserView() {
     setCart([...cart, el]);
   };
   
+  // const removeFromCart = (el) => {
+  //   let hardCopy = [...cart];
+  //   hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+  //   setCart(hardCopy);
+  // };
+
   const removeFromCart = (el) => {
     let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
-    setCart(hardCopy);
+    const indexToRemove = hardCopy.findIndex((cartItem) => cartItem.id === el.id);
+    if (indexToRemove !== -1) {
+      hardCopy.splice(indexToRemove, 1);
+      setCart(hardCopy);
+    }
   };
 
   const listItems = items.map((el) => (
@@ -85,6 +94,11 @@ function BrowserView() {
       return (
         <div>
         STORE SE/ComS319
+        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search"/>
+{/* value={query} onChange={handleChange} */}
         <div class="card">
         <div class="row">
         {/* HERE, IT IS THE SHOPING CART */}
@@ -100,7 +114,7 @@ function BrowserView() {
         </div>
         <div>{listItems}</div>
         </div>
-        
+       
         </div>
         </div>
         </div>
@@ -132,33 +146,19 @@ const removeFromCart = (el) => {
 const total = () => {
   let totalVal = 0;
   for (let i = 0; i < cart.length; i++) {
-  totalVal += cart[i].price;
+  totalVal += cart[i].price + cart[i].price * 0.06;
   }
   setCartTotal(totalVal);
   };
   
 
-const cartItems = cart.map((el) => (
-  <div class="row border-top border-bottom" key={el.id}>
-  <div class="row main align-items-center">
-  <div class="col-2">
-  <img class="img-fluid" src={el.image} />
-  </div>
-  <div class="col">
-  <div class="row text-muted">{el.title}</div>
-  <div class="row">{el.category}</div>
-  </div>
-  <div class="col">
-    ${el.price} <span class="close"></span>
-    <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
-    </div>
-  </div>
-  </div>
-  ));
+const uniqueItems = Array.from(new Set(cart.map((item) => item.id)))
+  .map((id) => {
+    return cart.find((item) => item.id === id);
+  });
 
-  const listItems = items.map((el) => (
-    // PRODUCT
-    <div class="row border-top border-bottom" key={el.id}>
+const cartItems = uniqueItems.map((el) => (
+  <div class="row border-top border-bottom" key={el.id}>
     <div class="row main align-items-center">
     <div class="col-2">
     <img class="img-fluid" src={el.image} />
@@ -167,32 +167,34 @@ const cartItems = cart.map((el) => (
     <div class="row text-muted">{el.title}</div>
     <div class="row">{el.category}</div>
     </div>
-    <div class="col">
-    <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
-    <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
-    </div>
+    {/* <div class="col">
+    </div> */}
     <div class="col">
     ${el.price} <span class="close">&#10005;</span>{howManyofThis(el.id)}
+
     </div>
     </div>
     </div>
-    ));
-      function howManyofThis(id) {
-        let hmot = cart.filter((cartItem) => cartItem.id === id);
-      return hmot.length;
-      }
+  ));
+
+  function howManyofThis(id) {
+    let hmot = cart.filter((cartItem) => cartItem.id === id);
+  return hmot.length;
+  }
       
     
    return (
+    
 <div>
+
 STORE SE/ComS319
 <div class="card">
 <div class="row">
 {/* HERE, IT IS THE SHOPING CART */}
 <div class ="float-end">
 <p class ="mb-0 me-5 d-flex align-items-center">
-<span class ="small text-muted me-2">Order total:</span>
-<span class ="lead fw-normal">${cartTotal}</span>
+<span class ="small text-muted me-2">Order total + tax:</span>
+<span class ="lead fw-normal">${cartTotal.toFixed(2)}</span>
 </p>
 </div>
 <div class="col-md-8 cart">
@@ -213,7 +215,91 @@ Products selected {cart.length}
 
 </div>
 </div>
+<div className="container">
+    <div className="row">
+      <div className="col-2"></div>
+      <div className="col-8">
+        <h1>Payment Information</h1>
+        <div id="liveAlertPlaceholder"></div>
+        <form className="row g-3" id="checkout-form"/>
+          {/* Full Name */}
+          <div className="col-md-6">
+            <label htmlFor="inputName" className="form-label">Full Name</label>
+            <input type="text" className="form-control" id="inputName"/>
+            <div className="valid-feedback">Looks good!</div>
+            <div className="invalid-feedback">Must be like, "John Doe"</div>
+          </div>
+          {/* Email */}
+          <div className="col-md-6">
+            <label htmlFor="inputEmail4" className="form-label">Email</label>
+            <input type="email" className="form-control" id="inputEmail4"/>
+            <div className="valid-feedback">Looks good!</div>
+            <div className="invalid-feedback">Must be like, "abc@xyz.efg"</div>
+          </div>
+          {/* Credit Card */}
+          <div className="col-12">
+            <label htmlFor="inputCard" className="form-label">Card</label>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1"><i className="bi-credit-card-fill"></i></span>
+              <input type="text" id="inputCard" className="form-control" placeholder="XXXX-XXXX-XXXX-XXXX" aria-label="Username" aria-describedby="basic-addon1"/>
+              <div className="valid-feedback">Looks good!</div>
+              <div className="invalid-feedback">Must be like, "7777-7777-7777-7777"</div>
+            </div>
+          </div>
+          <div className="col-12">
+            <label htmlFor="inputAddress" className="form-label">Address</label>
+            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
+          </div>
+          <div className="col-12">
+            <label htmlFor="inputAddress2" className="form-label">Address 2</label>
+            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+          </div>
+          <div className="col-md-6">
+            <label htmlFor="inputCity" className="form-label">City</label>
+            <input type="text" className="form-control" id="inputCity"/>
+          </div>
+          <div className="col-md-4">
+            <label htmlFor="inputState" className="form-label">State</label>
+            <select id="inputState" className="form-select">
+              <option selected>Choose...</option>
+            </select>
+          </div>
+          <div className="col-md-2">
+            <label htmlFor="inputZip" className="form-label">Zip</label>
+            <input type="text" className="form-control" id="inputZip"/>
+          </div>
+          <div className="col-12">
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" id="gridCheck" />
+          <label className="form-check-label" htmlFor="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div>
+      <div className="col-12">
+        <button type="submit" className="btn btn-success">
+          <i className="bi-bag-check"></i> Order
+        </button>
+      </div>
+
+      <div className="card collapse" style={{ width: "18rem" }}>
+        <div className="card-body">
+          <h5 className="card-title">Order summary</h5>
+          <p className="card-text">Here is a summary of your order.</p>
+        </div>
+        <ul className="list-group list-group-flush"></ul>
+        <a href="" onClick={() => window.location.reload()} className="btn btn-secondary">
+          <i className="bi-arrow-left-circle"></i> Return
+        </a>
+      </div>
+
+      <div className="col-2"></div>
+    </div>
+    </div>
+    </div>
 </div>
+
+
 );
 }
 
@@ -226,9 +312,93 @@ function ConfirmationView() {
     }
     setCartTotal(totalVal);
     };
+
+    
   return (
-  <div>This is the Confirmation view</div>
+    <div className="container">
+    <div className="row">
+      <div className="col-2"></div>
+      <div className="col-8">
+        <h1>Payment Information</h1>
+        <div id="liveAlertPlaceholder"></div>
+        <form className="row g-3" id="checkout-form"/>
+          {/* Full Name */}
+          <div className="col-md-6">
+            <label htmlFor="inputName" className="form-label">Full Name</label>
+            <input type="text" className="form-control" id="inputName"/>
+            <div className="valid-feedback">Looks good!</div>
+            <div className="invalid-feedback">Must be like, "John Doe"</div>
+          </div>
+          {/* Email */}
+          <div className="col-md-6">
+            <label htmlFor="inputEmail4" className="form-label">Email</label>
+            <input type="email" className="form-control" id="inputEmail4"/>
+            <div className="valid-feedback">Looks good!</div>
+            <div className="invalid-feedback">Must be like, "abc@xyz.efg"</div>
+          </div>
+          {/* Credit Card */}
+          <div className="col-12">
+            <label htmlFor="inputCard" className="form-label">Card</label>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1"><i className="bi-credit-card-fill"></i></span>
+              <input type="text" id="inputCard" className="form-control" placeholder="XXXX-XXXX-XXXX-XXXX" aria-label="Username" aria-describedby="basic-addon1"/>
+              <div className="valid-feedback">Looks good!</div>
+              <div className="invalid-feedback">Must be like, "7777-7777-7777-7777"</div>
+            </div>
+          </div>
+          <div className="col-12">
+            <label htmlFor="inputAddress" className="form-label">Address</label>
+            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
+          </div>
+          <div className="col-12">
+            <label htmlFor="inputAddress2" className="form-label">Address 2</label>
+            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+          </div>
+          <div className="col-md-6">
+            <label htmlFor="inputCity" className="form-label">City</label>
+            <input type="text" className="form-control" id="inputCity"/>
+          </div>
+          <div className="col-md-4">
+            <label htmlFor="inputState" className="form-label">State</label>
+            <select id="inputState" className="form-select">
+              <option selected>Choose...</option>
+            </select>
+          </div>
+          <div className="col-md-2">
+            <label htmlFor="inputZip" className="form-label">Zip</label>
+            <input type="text" className="form-control" id="inputZip"/>
+          </div>
+          <div className="col-12">
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" id="gridCheck" />
+          <label className="form-check-label" htmlFor="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div>
+      <div className="col-12">
+        <button type="submit" className="btn btn-success">
+          <i className="bi-bag-check"></i> Order
+        </button>
+      </div>
+
+      <div className="card collapse" style={{ width: "18rem" }}>
+        <div className="card-body">
+          <h5 className="card-title">Order summary</h5>
+          <p className="card-text">Here is a summary of your order.</p>
+        </div>
+        <ul className="list-group list-group-flush"></ul>
+        <a href="" onClick={() => window.location.reload()} className="btn btn-secondary">
+          <i className="bi-arrow-left-circle"></i> Return
+        </a>
+      </div>
+
+      <div className="col-2"></div>
+    </div>
+    </div>
+    </div>
   );
+
 }
 }
 export default App;
