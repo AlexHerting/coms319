@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 import items from "./products.json";
 
 
@@ -313,6 +313,115 @@ function ConfirmationView() {
     setCartTotal(totalVal);
     };
 
+    const [alertMessage, setAlertMessage] = useState(null);
+    const [order, setOrder] = useState({
+      name: '',
+      email: '',
+      card: '',
+    });
+
+    const formRef = useRef(null);
+  
+    useEffect(() => {
+      const inputCard = document.querySelector('#inputCard')
+      const form = document.getElementById('checkout-form')
+      //const alertTrigger = formRef.current.querySelector('#submit-btn');
+  
+      const alert = (message, type) => {
+        setAlertMessage({ message, type });
+      };
+  
+      //puts splits between the 4 numbers (only if numeric)
+      function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+      }
+  
+      const handleInputCard = (event) => {
+        if (!inputCard.value) {
+          return event.preventDefault(); // stops modal from being shown
+        } else {
+          inputCard.value = inputCard.value.replace(/-/g, '');
+          let newVal = '';
+          for (var i = 0, nums = 0; i < inputCard.value.length; i++) {
+            if (nums != 0 && nums % 4 === 0) {
+              newVal += '-';
+            }
+            newVal += inputCard.value[i];
+            if (isNumeric(inputCard.value[i])) {
+              nums++;
+            }
+          }
+          inputCard.value = newVal;
+        }
+      };
+  
+      const handleFormSubmit = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!validate()) {
+          alert('<i class="bi-exclamation-circle"></i> Something went wrong!', 'danger');
+        }
+      };
+  
+      inputCard.addEventListener('input', handleInputCard);
+      form.addEventListener('submit', handleFormSubmit);
+  
+      return () => {
+        inputCard.removeEventListener('input', handleInputCard);
+        form.removeEventListener('submit', handleFormSubmit);
+      };
+    }, []);
+    
+
+    let validate = function(){
+      let val = true;
+      let email = document.getElementById('inputEmail4')
+      let name = document.getElementById('inputName')
+      let card = document.getElementById('inputCard')
+      let form = document.getElementById('checkout-form')
+      let summaryList = document.querySelector('.card > ul')
+      let summaryCard = document.querySelector('.card')
+      let alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+      if (!email.value.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )){
+      email.setAttribute("class", "form-control is-invalid");
+      val = false;
+      }
+      else{
+      email.setAttribute("class", "form-control is-valid");
+      order.email = email.value
+      }
+      if (name.value.length == 0)
+      {
+      name.setAttribute("class","form-control is-invalid")
+      val = false
+      }
+      else{
+      name.setAttribute("class", "form-control is-valid");
+      order.name = name.value
+      }
+      if (!card.value.match(/^[0-9]{4}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}$/))
+      {
+      card.setAttribute("class","form-control is-invalid")
+      val = false
+      }
+      else{
+      card.setAttribute("class", "form-control is-valid");
+      order.card = card.value
+      }
+      if (val){
+      form.classList.add("collapse")
+      for (const [key, value] of Object.entries(order)) {
+      summaryList.innerHTML += '<li class="list-group-item"> <b>' + `${key}` +': </b>' + `${value}` +'</li>'
+      }
+      summaryCard.classList.remove("collapse")
+      alertPlaceholder.innerHTML = ""
+      alert('<i class="bi-cart-check-fill"></i> You have made an order!','success')
+      }
+      return val;
+       }
+
     
   return (
     <div className="container">
@@ -377,7 +486,7 @@ function ConfirmationView() {
         </div>
       </div>
       <div className="col-12">
-        <button type="submit" className="btn btn-success">
+        <button type="submit" className="btn btn-success" onClick={validate}> 
           <i className="bi-bag-check"></i> Order
         </button>
       </div>
