@@ -39,99 +39,156 @@ function App() {
     </div>
   );
 
-// BROWSER VIEW 
-function BrowserView() {
-
-  const addToCart = (el) => {
-    setCart([...cart, el]);
-  };
+  function BrowserView() {
+    const [cart, setCart] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
   
-  // const removeFromCart = (el) => {
-  //   let hardCopy = [...cart];
-  //   hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
-  //   setCart(hardCopy);
-  // };
-
-  const removeFromCart = (el) => {
-    let hardCopy = [...cart];
-    const indexToRemove = hardCopy.findIndex((cartItem) => cartItem.id === el.id);
-    if (indexToRemove !== -1) {
-      hardCopy.splice(indexToRemove, 1);
-      setCart(hardCopy);
-    }
-  };
-
-  const listItems = items.map((el) => (
-    // PRODUCT
-    <div className="row border-top border-bottom" key={el.id}>
-      <div className="row main align-items-center">
-        <div className="col-2">
-          <img className="img-fluid" src={el.image} />
-        </div>
-        <div className="col">
-          <div className="row text-muted">{el.title}</div>
-          <div className="row">{el.category}</div>
-        </div>
-        <div className="col">
-          <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
-          <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
-        </div>
-        <div className="col">
-          ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
-        </div>
-      </div>
-    </div>
-  ));
-
-  function howManyofThis(id) {
-    let hmot = cart.filter((cartItem) => cartItem.id === id);
-    return hmot.length;
-  }
-
-  // function handleClick(tag){
-  //   let filtered = listItems.filter(el => el.category === tag);
-  //   setProductsCategory(filtered);
-  // }
-  const [query, setQuery] = useState('');
-  const [ProductsCategory, setProductsCategory] = useState(items);
-      
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    console.log("Step 6 : in handleChange, Target Value :",e.target.value,"  Query Value :",query);
-    const results = ProductsCategory.filter(eachProduct => {
-    if (e.target.value === "") return ProductsCategory;
-      return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
-    });
-    setProductsCategory(results);
-  }
-
-  return (
-    <div>
-      <h1>STORE SE/ComS319</h1>
-      <div className="py-10">
-        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />
-      </div>
-      <div className="col">
-        <h3>
-          <b>319 Shop Browser</b>
-        </h3>
-      </div>
-      <div className="card">
-        <div className="row">
-          {/* HERE, IT IS THE SHOPING CART */}
-          <div className="col-md-8 cart">
-            <div className="title">
-              <div className="row">
-              </div>
-            </div>
-            <div>{listItems}</div>
-            <div><button onClick={() => handleButtonClick('cart')}>Checkout</button></div>
+    const addToCart = (el) => {
+      setCart([...cart, el]);
+    };
+  
+    const removeFromCart = (el) => {
+      let hardCopy = [...cart];
+      const indexToRemove = hardCopy.findIndex((cartItem) => cartItem.id === el.id);
+      if (indexToRemove !== -1) {
+        hardCopy.splice(indexToRemove, 1);
+        setCart(hardCopy);
+      }
+    };
+  
+    const filteredItems = items.filter((el) => el.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    const listItems = filteredItems.map((el) => (
+      <div className="row border-top border-bottom" key={el.id}>
+        <div className="row main align-items-center">
+          <div className="col-2">
+            <img className="img-fluid" src={el.image} />
+          </div>
+          <div className="col">
+            <div className="row text-muted">{el.title}</div>
+            <div className="row">{el.category}</div>
+          </div>
+          <div className="col">
+            <button type="button" variant="light" onClick={() => removeFromCart(el)}> - </button>{" "}
+            <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
+          </div>
+          <div className="col">
+            ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    ));
+  
+    function howManyofThis(id) {
+      let hmot = cart.filter((cartItem) => cartItem.id === id);
+      return hmot.length;
+    }
+  
+    return (
+      <div>
+        <nav id='navBar'>
+          <input type='text' placeholder='Search' value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
+          {/* <button onClick={() => handleButtonClick('browser')}>Browser</button>
+          <button onClick={() => handleButtonClick('cart')}>Cart</button> */}
+        </nav>
+        {listItems}
+      </div>
+    );
+  }
+
+  
+// BROWSER VIEW 
+// function BrowserView() {
+
+//   const addToCart = (el) => {
+//     setCart([...cart, el]);
+//   };
+  
+//   // const removeFromCart = (el) => {
+//   //   let hardCopy = [...cart];
+//   //   hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+//   //   setCart(hardCopy);
+//   // };
+
+//   const removeFromCart = (el) => {
+//     let hardCopy = [...cart];
+//     const indexToRemove = hardCopy.findIndex((cartItem) => cartItem.id === el.id);
+//     if (indexToRemove !== -1) {
+//       hardCopy.splice(indexToRemove, 1);
+//       setCart(hardCopy);
+//     }
+//   };
+
+//   const listItems = items.map((el) => (
+//     // PRODUCT
+//     <div className="row border-top border-bottom" key={el.id}>
+//       <div className="row main align-items-center">
+//         <div className="col-2">
+//           <img className="img-fluid" src={el.image} />
+//         </div>
+//         <div className="col">
+//           <div className="row text-muted">{el.title}</div>
+//           <div className="row">{el.category}</div>
+//         </div>
+//         <div className="col">
+//           <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
+//           <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
+//         </div>
+//         <div className="col">
+//           ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
+//         </div>
+//       </div>
+//     </div>
+//   ));
+
+//   function howManyofThis(id) {
+//     let hmot = cart.filter((cartItem) => cartItem.id === id);
+//     return hmot.length;
+//   }
+
+//   // function handleClick(tag){
+//   //   let filtered = listItems.filter(el => el.category === tag);
+//   //   setProductsCategory(filtered);
+//   // }
+//   const [query, setQuery] = useState('');
+//   const [ProductsCategory, setProductsCategory] = useState(items);
+      
+//   const handleChange = (e) => {
+//     setQuery(e.target.value);
+//     console.log("Step 6 : in handleChange, Target Value :",e.target.value,"  Query Value :",query);
+//     const results = ProductsCategory.filter(eachProduct => {
+//     if (e.target.value === "") return ProductsCategory;
+//       return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+//     });
+//     setProductsCategory(results);
+//   }
+
+//   return (
+//     <div>
+//       <h1>STORE SE/ComS319</h1>
+//       <div className="py-10">
+//         <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />
+//       </div>
+//       <div className="col">
+//         <h3>
+//           <b>319 Shop Browser</b>
+//         </h3>
+//       </div>
+//       <div className="card">
+//         <div className="row">
+//           {/* HERE, IT IS THE SHOPING CART */}
+//           <div className="col-md-8 cart">
+//             <div className="title">
+//               <div className="row">
+//               </div>
+//             </div>
+//             <div>{listItems}</div>
+//             <div><button onClick={() => handleButtonClick('cart')}>Checkout</button></div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 // CART VIEW 
 function CartView() {
