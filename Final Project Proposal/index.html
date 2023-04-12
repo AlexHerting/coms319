@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Final Project Proposal</title>
+</head>
+
+<body>
+
+    <!-- Title -->
+    <h2 style="text-decoration: underline;">Title</h2> 
+    <p>Final Project Phase 1 Proposal</p>
+
+    <!-- Course description -->
+    <h2 style="text-decoration: underline;">Course & Date</h2>
+    <p>Course: SE/COMS 319</p>
+    <p>Date: 4/11/2023</p>
+
+    <!-- Names -->
+    <h2 style="text-decoration: underline;">Name of the students</h2>
+    <p>Student 1: Alex Herting - aherting@iastate.edu</p>
+    <p>Student 2: TerXun Ng - terxun@iastate.edu</p>
+
+    <!-- Table of Contents -->
+    <h2 style="text-decoration: underline;">Table of Contents</h2>
+    <ul>
+        <li><a href="#desc">Final Projecct Description</a></li>
+        <li><a href="#views">Views</a></li>
+        <li><a href="#files">Internal Files</a></li>
+        <li><a href="#data">Data</a></li>
+    </ul>
+
+    <section id="desc">
+        <h2 style="text-decoration: underline;">Final Project Description</h2>
+        <p>
+            The idea for the final project takes heavy inspiration from the midterm project, which is an e-commerce site that sells PC peripherals,
+            with the exception that it will be a much more advanced version of the midterm project.
+            The motivation for the final project can be heavily credited to the hands-on experience from class participation activities as well as assignments from the course that broadens 
+            our web development skillsets and encourage creativity with designing a webpage. With the new skills we have learned since the midterm project, we will be able to significantly 
+            advance the website and its complexity.
+            <br>
+            <br>
+            Our objectives are to make a well-structured online store that is 100% 
+            functional and would be able to be used at a commercial level by utilizing most, if not all, of the skills and knowledge we have learned from this course, such as 
+            creating a single-page website design, utilizing modules, frameworks, transfer protocols, and a database.
+        </p>
+    </section>
+
+    <section id="views">
+        <h2 style="text-decoration: underline;">Views</h2>
+        <img src="./images/flowchart.PNG">
+        <p>
+            This flowchart presents a simplified version of how one's view will be  modified from start to end of shopping on our website.
+            The user is first presented with a welcome screen that allows the user to enter the catalog of products, which are separated by categories.
+            In the catalogs, the user can click on individual items to view them more in-depth and adding it to cart if desired. Otherwise, the user can return
+            to the catalogs or enter the cart view any time. Once the user pays in the cart screen, the user is then presented with a confirmation page which has an order
+            summary and be prompted to continue shopping or leave a review.
+        </p>
+
+        <h4>View 1</h4>
+        <img src="./images/View1.png" alt="view1" style="width: 600px; height: 500px;">
+        <p>The first page or "view" will consist of a welcome message. This screen will also have a welcome button that will take the user to the main catalog of products,
+            as well as an overview of the entire store to see the categories of products, and an "About us" section and other navigation links. When the user presses the welcome button, 
+            the website will take you straight to the browser view.
+        </p>
+        <h4>View 2</h4>
+        <img src="./images/View2.png" alt="view2" style="width: 600px; height: 500px;">
+        <p>This view is the catalog of products that the user can choose from, separated by the categories of products that can be navigated or sorted. The webpage will also have a fuctional search bar to search for a particular product the user desires
+            For the user to view the item more in-depth and add to cart, the user has to click on an individual item at a time to put in focus and bring up a page that the user can view all details and modify the order before clicking add to cart (See View 3).
+        </p>
+        <h4>View 3</h4>
+        <img src="./images/View3.png" alt="view3" style="width: 600px; height: 500px;">
+        <p>When you click on a product name, the product will take up your screen so that you can see all the details about the item, as well as being able to modify the quantities, add-ons, and color of the 
+            desired item before adding to cart. The user should also be able to press a button to return to catalog/browser view.</p>
+        <h4>View 4</h4>
+        <img src="./images/View4.png" alt="view4" style="width: 600px; height: 500px;">
+        <p>Once users are done shopping, users can go to the cart by pressing the cart icon at the top, which brings them to the cart view where they can checkout and pay for their items after seeing their 
+            ordered items, price breakdown, and entering their correct information in the payment form.</p>
+        <h4>View 5</h4>
+        <img src="./images/View5.png" alt="view5" style="width: 600px; height: 500px;">
+        <p>After the user has checked out and payed, they will be presented with a thank you screen with an order summary and be prompted to continue shopping or leave a review on any of the items that they purchased.</p>
+    </section>
+
+    <section id="files">
+        <h2 style="text-decoration: underline;">Internal Files</h2>
+        <img src="./images/FileStructure.png" alt="files">
+        <p>
+            Since our final project will be a single-paged website designed with React, this is the following file structure in the project directory, with "node_modules" being primarily filled with required files to
+            run the project. In the "public" directory, index.html is used to render the website on a browser, which just directs to index.js in the "src" directory, which is where most of the
+            project's code will be. App.js is the root JS file that contains most of the website's functionalities, and will be exported to index.html when the website renders.
+            styles.css, script.js, and products.json are all supporting files for the website's functionalities as styles.css will contain the styling code for the project, script.js will contain
+            functions and variables that can be utilized in App.js, and products.json will contain all the products used in the website in JSON format. Last but not least, there will be an
+            "images" folder to hold all the images used on the visual appeal of the website and ensure that items are correctly displayed.
+        </p>
+    </section>
+
+    <section id="data">
+        <h2 style="text-decoration: underline;">Data</h2>
+        <p>As of the writing of this proposal, the products will be retrieved and rendered from products.json. 
+            When the user add items to their cart, we will have a gloabal useState variable in App.js that can hold all of the items that the user has added, which is then
+            rendered from products.json when the user views their items in the cart view or order summary. If possible, we can save the user's
+            information from the payment form into a remote database with a .sql data format using CRUD and the REST API if the checkout is successful. Not only that, 
+            reviews of the users can also be saved that way. To do that, we can call POST on the data the same time the user presses the "checkout" or "submit"
+            button. This opens up the potential for the users being able to view saved data such as payment information and reviews by calling GET to render the
+            required information when the user navigates to the necessary pages. Last but not least, users can then choose to update or delete their saved data
+            by calling PUT or DELETE on the REST API that will modify the saved data on the remote database.
+        </p>
+    </section>
+
+</body>
+
+
+</html>
