@@ -5,8 +5,6 @@ function App() {
   const [activeView, setActiveView] = useState('browser');
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  // const [query, setQuery] = useState('');
-  // const [ProductsCategory, setProductsCategory] = useState(items);
   
   const handleButtonClick = (viewName) => {
     setActiveView(viewName);
@@ -40,7 +38,6 @@ function App() {
   );
 
   function BrowserView() {
-    const [cart, setCart] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
   
     const addToCart = (el) => {
@@ -65,7 +62,7 @@ function App() {
           </div>
           <div className="col">
             <div className="row text-muted">{el.title}</div>
-            <div className="row">{el.category}</div>
+            <div className="row">{el.description}</div>
           </div>
           <div className="col">
             <button type="button" variant="light" onClick={() => removeFromCart(el)}> - </button>{" "}
@@ -85,12 +82,17 @@ function App() {
   
     return (
       <div>
-        <nav id='navBar'>
+        <h1 style={{color: 'red'}}>STORE SE/ComS319</h1>
+        <div style={{paddingBottom: 10}}>
           <input type='text' placeholder='Search' value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
           {/* <button onClick={() => handleButtonClick('browser')}>Browser</button>
           <button onClick={() => handleButtonClick('cart')}>Cart</button> */}
-        </nav>
-        {listItems}
+        </div>
+        <h3>
+          <b style={{textDecorationLine: 'underline'}}>319 Shop Browser</b>
+        </h3>
+        <div>{listItems}</div>
+        <div><button onClick={() => handleButtonClick('cart')}>Checkout</button></div>
       </div>
     );
   }
@@ -412,7 +414,7 @@ function CartView() {
     
   return (
     <div>
-      <h1>STORE SE/ComS319</h1>
+      <h1 style={{color: 'red'}}>STORE SE/ComS319</h1>
       <div className="card">
         <div className="row">
           {/* HERE, IT IS THE SHOPING CART */}
@@ -421,7 +423,7 @@ function CartView() {
               <div className="row">
                 <div className="col">
                   <h3 id='cartTitle'>
-                    <b>319 Shopping Cart</b>
+                    <b style={{textDecorationLine: 'underline'}}>319 Shopping Cart</b>
                   </h3>
                   <h3 id='orderTitle' className='collapse'>
                     <b>Ordered Items</b>
@@ -440,11 +442,10 @@ function CartView() {
           <div className="col align-self-center text-right text-muted">
                 Products selected: {cart.length}
           </div>
-          <div><button id='returnBtn' onClick={() => handleButtonClick('browser')}>Return</button></div>
         </div>
       </div>
 
-      <h3>Payment Information</h3>
+      <h3 style={{paddingTop: 10}}>Payment Information</h3>
       <div id="liveAlertPlaceholder"></div>
       <form className="row g-3" id="checkout-form">
         {/* Full Name */}
@@ -511,6 +512,8 @@ function CartView() {
             <i className="bi-bag-check"></i> Order
           </button>
         </div>
+        {/* Return Button */}
+        <div style={{paddingTop: 5}}><button id='returnBtn' onClick={() => handleButtonClick('browser')}>Return</button></div>
       </form>
 
       <div id='summCard' className="card collapse" style={{ width: "18rem" }}>
