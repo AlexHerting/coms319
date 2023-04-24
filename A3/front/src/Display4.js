@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-const Display1 = () => {
+const Display4 = () => {
   return (
     <div>
       <h1>This is Display 4</h1>
@@ -11,4 +11,4 @@ const Display1 = () => {
   );
 };
 
-export default Display1;
+export default Display4;

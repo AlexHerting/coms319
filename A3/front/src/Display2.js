@@ -1,4 +1,4 @@
-// Display2.js
+// Display1.js
 import React from 'react';
 
 const handleGet = () => {
@@ -7,11 +7,23 @@ const handleGet = () => {
       .then(data => {
         console.log(data);
         var container = document.getElementById("showData");
-        container.innerHTML = JSON.stringify(data, undefined, 2);
+        container.innerHTML = '';
+        data.forEach(item => {
+          const itemContainer = document.createElement("div");
+          const itemId = document.createElement("h1");
+          itemId.innerText = item.id;
+          itemContainer.appendChild(itemId);
+          for (const [key, value] of Object.entries(item)) {
+            const prop = document.createElement("p");
+            prop.innerText = `${key}: ${value}`;
+            itemContainer.appendChild(prop);
+          }
+          container.appendChild(itemContainer);
+        });
       });
   };
 
-const Display1 = () => {
+const Display2 = () => {
   return (
     <div>
       <h1>This is Display 2</h1>
@@ -22,4 +34,4 @@ const Display1 = () => {
   );
 };
 
-export default Display1;
+export default Display2;
