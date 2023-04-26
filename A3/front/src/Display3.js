@@ -24,7 +24,7 @@ const Display3 = () => {
 
   const handlePriceChange = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:8081/listUsers`, {
+    fetch(`http://localhost:8081/${searchId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -38,6 +38,7 @@ const Display3 = () => {
         setSearchId1("");
       });
   };
+
   
 
   return (
