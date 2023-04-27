@@ -38,7 +38,7 @@ app.get('/:id', async (req, res) => {
   
     await client.connect();
     console.log("Node connected successfully to GET MongoDB");
-    const query = { id: parseInt(productId) };
+    const query = { _id: parseInt(productId) };
     const result = await db.collection("Products").findOne(query);
   
     if (!result) {
@@ -48,24 +48,51 @@ app.get('/:id', async (req, res) => {
     }
   });
 
-  app.post("/addUser", async (req, res) => {
-    await client.connect();
-    const keys = Object.keys(req.body);
-    const values = Object.values(req.body);
-    const k = keys[0];
-    const v = values[0];
-    console.log("Keys :", k, " Values", v);
-    const newDocument = { _id: "600", [k]: [v] };
-    const results = await db.collection("Products").insertOne(newDocument);
-    res.status(200);
-    res.send(results);
-    });
+  // app.post('/addUser', async (req, res) => {
+  //   try {
+  //     const keys = Object.keys(req.body);
+  //     const values = Object.values(req.body);
+  //     const k = keys[0];
+  //     const v = values[0];
+  //     console.log("Keys :", k, " Values", v);
+  //     const newDocument = { _id: new ObjectId(), [k]: v };
+  //     const results = await db.collection("Products").insertOne(newDocument);
+  //     res.status(200).json(results.ops[0]);
+  //   } catch (error) {
+  //     console.error('Error adding user:', error);
+  //     res.status(500).json({ error: 'An error occurred while adding the user.' });
+  //   }
+  // });
+  
+  app.post('/addUser', async (req, res) => {
+    try {
+      const { _id, title, price, description, category, image, rate, count } = req.body;
+      const newDocument = {
+        _id,
+        title,
+        price,
+        description,
+        category,
+        image,
+        rating: {
+          rate,
+          count,
+        },
+      };
+      const results = await db.collection("Products").insertOne(newDocument);
+      res.status(200).json(results.ops[0]);
+    } catch (error) {
+      console.error('Error adding user:', error);
+      res.status(500).json({ error: 'An error occurred while adding the user.' });
+    }
+  });
+  
     
 
 
   app.put('/users/:id', async (req, res) => {
     try {
-      const productId = req.params.id;
+      const productId = req.params._id;
       const newPrice = req.body.newPrice;
   
       const client = await MongoClient.connect(url);

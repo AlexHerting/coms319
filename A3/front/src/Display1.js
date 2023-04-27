@@ -2,48 +2,55 @@
 import React from 'react';
 
 
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
   event.preventDefault(); // prevent default form submission behavior
-  
+
   const form = event.target; // get the form element
   const formData = new FormData(form); // create a FormData object with the form data
-  
-  // Get the values from the FormData object
-  const id = formData.get("id");
-  const title = formData.get("title");
-  const price = formData.get("price");
-  const description = formData.get("description");
-  const category = formData.get("category");
-  const image = formData.get("image");
-  const rate = formData.get("rate");
-  const count = formData.get("count");
 
-  fetch('http://localhost:8081/addUser', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({
-      "id": id,
-      "title": title,
-      "price": price,
-      "description": description,
-      "category": category,
-      "image": image,
-      "rating": {
-        "rate": rate,
-        "count": count
-      }
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    var container = document.getElementById("showData");
-    container.innerHTML = JSON.stringify(data);
-  });
-  
-  alert("Success");
-  // Do something with the form data
-  console.log(id, title, price, description, category, image, rate, count);
+  // Get the values from the FormData object
+  const _id = formData.get('id');
+  const title = formData.get('title');
+  const price = formData.get('price');
+  const description = formData.get('description');
+  const category = formData.get('category');
+  const image = formData.get('image');
+  const rate = formData.get('rate');
+  const count = formData.get('count');
+
+  const user = {
+    _id,
+    title,
+    price,
+    description,
+    category,
+    image,
+    rate,
+    count,
+  };
+
+  try {
+    const response = await fetch('http://localhost:8081/addUser', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('User added:', data);
+      // Handle success or any other logic here
+    } else {
+      console.error('Failed to add user:', response.status);
+      // Handle error here
+    }
+  } catch (error) {
+    console.error('Error adding user:', error);
+    // Handle error here
+  }
+
+  // Clear the form inputs
+  form.reset();
 };
 
 const Display1 = () => {

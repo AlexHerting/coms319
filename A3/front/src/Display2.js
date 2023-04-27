@@ -25,7 +25,7 @@ const handleGet = () => {
 
         const productName = document.createElement("h4");
         productName.classList.add("product-name");
-        productName.innerText = item.title + "  id: " + item.id;
+        productName.innerText = item.title + "  id: " + item._id;
         cardBody.appendChild(productName);
 
         const productDesc = document.createElement("p");
@@ -61,7 +61,7 @@ const Display2 = () => {
     <div>
       <h1>This is Display 2</h1>
       <h1>Get Method.</h1>
-      <button onClick={handleGet}>Get users</button>
+      <button onClick={handleGet}>Get all items</button>
       <div class="album py-5 bg-light">
       <div class="container" id="con">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

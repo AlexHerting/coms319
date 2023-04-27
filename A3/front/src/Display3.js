@@ -11,7 +11,7 @@ const Display3 = () => {
     fetch("http://localhost:8081/listUsers")
       .then((response) => response.json())
       .then((data) => {
-        const result = data.find((item) => item.id == searchId);
+        const result = data.find((item) => item._id == searchId);
         if (result) {
           setItem(result);
           setNotFound(false);
