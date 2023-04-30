@@ -24,7 +24,7 @@ const Display3 = () => {
 
   const handlePriceChange = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:8081/${searchId}`, {
+    fetch(`http://localhost:8081/users/${searchId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -71,13 +71,15 @@ const Display3 = () => {
                 aria-label="Search"
                 value={searchId1}
                 onChange={(event) => setSearchId1(event.target.value)}
-          />
+            />
           <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
             Change Price
           </button>
             </form>
             ) : notFound ? (
-           <div></div>
+           <div>
+              <h2>Item not found</h2>
+           </div>
         ) : null}
       </nav>
 

@@ -34,19 +34,19 @@ app.get("/listUsers", async (req, res) => {
 });
 
 app.get('/:id', async (req, res) => {
-    const productId = req.params.id;
-  
-    await client.connect();
-    console.log("Node connected successfully to GET MongoDB");
-    const query = { _id: parseInt(productId) };
-    const result = await db.collection("Products").findOne(query);
-  
-    if (!result) {
-      res.status(404).send('Product not found');
-    } else {
-      res.send(result);
-    }
-  });
+  const productId = req.params.id;
+
+  await client.connect();
+  console.log("Node connected successfully to GET MongoDB");
+  const query = { _id: parseInt(productId) };
+  const result = await db.collection("Products").findOne(query);
+
+  if (!result) {
+    res.status(404).send('Product not found');
+  } else {
+    res.send(result);
+  }
+});
 
   // app.post('/addUser', async (req, res) => {
   //   try {
@@ -64,53 +64,62 @@ app.get('/:id', async (req, res) => {
   //   }
   // });
   
-  app.post('/addUser', async (req, res) => {
-    try {
-      const { _id, title, price, description, category, image, rate, count } = req.body;
-      const newDocument = {
-        _id,
-        title,
-        price,
-        description,
-        category,
-        image,
-        rating: {
-          rate,
-          count,
-        },
-      };
-      const results = await db.collection("Products").insertOne(newDocument);
-      res.status(200).json(results.ops[0]);
-    } catch (error) {
-      console.error('Error adding user:', error);
-      res.status(500).json({ error: 'An error occurred while adding the user.' });
-    }
-  });
-  
+app.post('/addUser', async (req, res) => {
+  try {
+    const { _id, title, price, description, category, image, rate, count } = req.body;
+    const newDocument = {
+      _id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating: {
+        rate,
+        count,
+      },
+    };
+    const results = await db.collection("Products").insertOne(newDocument);
+    res.status(200).json(results.ops[0]);
+  } catch (error) {
+    console.error('Error adding user:', error);
+    res.status(500).json({ error: 'An error occurred while adding the user.' });
+  }
+});
+
+app.put('/users/:id', async (req, res) => {
+  try {
+    const productId = req.params._id;
+    const newPrice = req.body.newPrice;
+
+    const client = await MongoClient.connect(url);
+    const db = client.db(dbName);
+
+    const query = { _id: ObjectId(productId) };
+    const update = { $set: { price: newPrice } };
+
+    const result = await db.collection('Products').findOneAndUpdate(query, update, { returnOriginal: false });
     
+    console.log('Updated document:', result.value);
+    res.send(result.value).status(200);
+    
+    client.close();
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err);
+  }
+});
 
-
-  app.put('/users/:id', async (req, res) => {
-    try {
-      const productId = req.params._id;
-      const newPrice = req.body.newPrice;
-  
-      const client = await MongoClient.connect(url);
-      const db = client.db(dbName);
-  
-      const query = { _id: ObjectId(productId) };
-      const update = { $set: { price: newPrice } };
-  
-      const result = await db.collection('Products').findOneAndUpdate(query, update, { returnOriginal: false });
-      
-      console.log('Updated document:', result.value);
-      res.send(result.value).status(200);
-      
-      client.close();
-    } catch (err) {
-      console.log(err);
-      res.status(500).send(err);
-    }
-  });
-
-  
+app.delete("/delete", async (req, res) => {
+  console.log("Delete :", req.body);
+  try {
+    const query = { _id: req.body._id };
+    await Product.deleteOne(query);
+    const messageResponse = {
+      message: `Product ${req.body._id} deleted correctly`,
+    };
+    res.send(JSON.stringify(messageResponse));
+  } catch (err) {
+    console.log("Error while deleting :" + p_id + " " + err);
+  }
+});
