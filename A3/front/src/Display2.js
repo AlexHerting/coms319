@@ -39,7 +39,7 @@ const handleGet = () => {
 
         const price = document.createElement("small");
         price.classList.add("text-muted");
-        price.innerText = "$" + item.price.toFixed(2) + " category: " + item.category + " rate: " + item.rating.rate + " count: " + item.rating.count;
+        price.innerText = "$" + item.price + " category: " + item.category + " rate: " + item.rating.rate + " count: " + item.rating.count;
         btnGroup.appendChild(price);
 
 

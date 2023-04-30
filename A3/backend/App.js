@@ -5,6 +5,14 @@ const dbName = "catalog";
 const client = new MongoClient(url);
 const db = client.db(dbName);
 
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://127.0.0.1:27017/catalog",
+{
+dbName: "catalog",
+useNewUrlParser: true,
+useUnifiedTopology: true,
+}
+);
 
 var express = require("express");
 var cors = require("cors");
@@ -18,6 +26,9 @@ const host = "localhost";
 app.listen(port, () => {
 console.log("App listening at http://%s:%s", host, port);
 });
+
+
+
 
 app.get("/listUsers", async (req, res) => {
     await client.connect();
@@ -109,9 +120,27 @@ app.put('/users/:id', async (req, res) => {
     res.status(500).send(err);
   }
 });
+// const Product = require('./dataSchema')
+
+// app.delete("/delete", async (req, res) => {
+//   console.log("Delete :", req.body);
+//   try {
+//     const query = { _id: req.body._id };
+//     await Product.deleteOne(query);
+//     const messageResponse = {
+//       message: `Product ${req.body._id} deleted correctly`,
+//     };
+//     res.send(JSON.stringify(messageResponse));
+//   } catch (err) {
+//     console.log("Error while deleting :" + p_id + " " + err);
+//   }
+// });
+
+
+const Product = require('./dataSchema')
 
 app.delete("/delete", async (req, res) => {
-  console.log("Delete :", req.body);
+  console.log("Delete:", req.body);
   try {
     const query = { _id: req.body._id };
     await Product.deleteOne(query);
@@ -120,6 +149,7 @@ app.delete("/delete", async (req, res) => {
     };
     res.send(JSON.stringify(messageResponse));
   } catch (err) {
-    console.log("Error while deleting :" + p_id + " " + err);
+    console.log("Error while deleting:", err);
+    res.status(500).json({ error: "Failed to delete the product " });
   }
 });

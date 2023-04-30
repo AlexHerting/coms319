@@ -9,14 +9,14 @@ const handleSubmit = async (event) => {
   const formData = new FormData(form); // create a FormData object with the form data
 
   // Get the values from the FormData object
-  const _id = formData.get('id');
+  const _id = parseInt(formData.get('id'));
   const title = formData.get('title');
-  const price = formData.get('price');
+  const price = parseFloat(formData.get('price'));
   const description = formData.get('description');
   const category = formData.get('category');
   const image = formData.get('image');
-  const rate = formData.get('rate');
-  const count = formData.get('count');
+  const rate = parseFloat(formData.get('rate'));
+  const count = parseInt(formData.get('count'));
 
   const user = {
     _id,

@@ -8,6 +8,8 @@ const Display4 = () => {
   const [item, setItem] = useState(null);
   const [notFound, setNotFound] = useState(false);
 
+  const [checked4, setChecked4] = useState(false);
+
   const handleSearch = (event) => {
     event.preventDefault();
     fetch("http://localhost:8081/listUsers")
@@ -24,16 +26,35 @@ const Display4 = () => {
       });
   };
 
-  const handleDelete = (event) => {
-    event.preventDefault();
-    fetch(`http://localhost:8081/delete`)
+  // const handleDelete = (event) => {
+  //   event.preventDefault();
+  //   fetch(`http://localhost:8081/delete`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setItem(data);
+  //       setSearchId("");
+  //       setSearchId1("");
+  //     });
+  // };
+
+  function deleteOneProduct(deleteid) {
+    console.log("Product to delete:", deleteid);
+    fetch("http://localhost:8081/delete/", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ _id: deleteid }),
+    })
       .then((response) => response.json())
       .then((data) => {
-        setItem(data);
-        setSearchId("");
-        setSearchId1("");
+        console.log("Delete a product completed:", deleteid);
+        console.log(data);
+        if (data) {
+          const value = Object.values(data);
+          alert(value);
+        }
       });
-  };
+    setChecked4(!checked4); 
+  }
 
   return (
     <div>
@@ -54,16 +75,17 @@ const Display4 = () => {
         </form>
 
         {item ? (
-          <form className="form-inline" onSubmit={handleDelete}>
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Delete Item
-            </button>
-          </form>
-            ) : notFound ? (
-           <div>
-              <h2>Item not found</h2>
-           </div>
-        ) : null}
+  <form className="form-inline" onSubmit={() => deleteOneProduct(item._id)}>
+    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
+      Delete Item
+    </button>
+  </form>
+) : notFound ? (
+  <div>
+    <h2>Item not found</h2>
+  </div>
+) : null}
+
       </nav>
 
       {item ? (
