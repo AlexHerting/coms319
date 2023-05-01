@@ -1,10 +1,9 @@
 // Display1.js
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 const Display4 = () => {
   const [searchId, setSearchId] = useState("");
-  const [searchId1, setSearchId1] = useState("");
   const [item, setItem] = useState(null);
   const [notFound, setNotFound] = useState(false);
 
@@ -58,7 +57,7 @@ const Display4 = () => {
 
   return (
     <div>
-      <h1>This is Display 4</h1>
+      <h1>Display 4</h1>
       <nav className="navbar navbar-light bg-light">
         <form className="form-inline" onSubmit={handleSearch}>
           <input
@@ -82,7 +81,6 @@ const Display4 = () => {
   </form>
 ) : notFound ? (
   <div>
-    <h2>Item not found</h2>
   </div>
 ) : null}
 
@@ -90,7 +88,7 @@ const Display4 = () => {
 
       {item ? (
         <div>
-          <h2>ID: {item.id}</h2>
+          <h2>ID: {item._id}</h2>
           <p>Title: {item.title}</p>
           <p>Price: ${item.price}</p>
           <p>Description: {item.description}</p>

@@ -18,6 +18,8 @@ const handleGet = () => {
         const img = document.createElement("img");
         img.src = item.image;
         img.alt = item.title;
+        img.height = 400;
+        img.width = 300;
         card.appendChild(img);
 
         const cardBody = document.createElement("div");
@@ -59,8 +61,7 @@ const handleGet = () => {
 const Display2 = () => {
   return (
     <div>
-      <h1>This is Display 2</h1>
-      <h1>Get Method.</h1>
+      <h1>Display 2</h1>
       <button onClick={handleGet}>Get all items</button>
       <div class="album py-5 bg-light">
       <div class="container" id="con">

@@ -98,23 +98,26 @@ app.post('/addUser', async (req, res) => {
   }
 });
 
+const Product = require('./dataSchema')
+
 app.put('/users/:id', async (req, res) => {
   try {
-    const productId = req.params._id;
-    const newPrice = req.body.newPrice;
+    // const productId = req.params._id;
+    // const newPrice = req.body.price;
 
-    const client = await MongoClient.connect(url);
-    const db = client.db(dbName);
+    // const client = await MongoClient.connect(url);
+    // const db = client.db(dbName);
 
-    const query = { _id: ObjectId(productId) };
-    const update = { $set: { price: newPrice } };
+    const query = { _id: req.body._id };
+    const update = { $set: { price: req.body.price } };
+    await Product.findOneAndUpdate(query, update, {returnOriginal: false});
 
-    const result = await db.collection('Products').findOneAndUpdate(query, update, { returnOriginal: false });
+    // const result = await db.collection('Products').findOneAndUpdate(query, update, { returnOriginal: false });
     
-    console.log('Updated document:', result.value);
-    res.send(result.value).status(200);
+    // console.log('Updated document:', result.value);
+    // res.send(result.value).status(200);
     
-    client.close();
+    // client.close();
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
@@ -135,9 +138,6 @@ app.put('/users/:id', async (req, res) => {
 //     console.log("Error while deleting :" + p_id + " " + err);
 //   }
 // });
-
-
-const Product = require('./dataSchema')
 
 app.delete("/delete", async (req, res) => {
   console.log("Delete:", req.body);

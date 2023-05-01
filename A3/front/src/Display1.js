@@ -55,44 +55,46 @@ const handleSubmit = async (event) => {
 
 const Display1 = () => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="id">Id</label>
-        <input className="form-control" id="id" name="id" placeholder="Enter an id #" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="title">Title</label>
-        <input className="form-control" id="title" name="title" placeholder="Enter a title for the product" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="price">Price</label>
-        <input className="form-control" id="price" name="price" placeholder="Enter a price for the product $" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="description">Description</label>
-        <textarea className="form-control" id="description" name="description" placeholder="Enter a description of the product" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="category">Category</label>
-        <input className="form-control" id="category" name="category" placeholder="Enter a category for the product" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="image">Image</label>
-        <input className="form-control" id="image" name="image" placeholder="Enter an image link for the product" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="rate">Rate</label>
-        <input className="form-control" id="rate" name="rate" placeholder="Enter a rating out of 5 for the product" required/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="count">Count</label>
-        <input className="form-control" id="count" name="count" placeholder="Enter a product count" required/>
-      </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+    <div>
+      <h1>Display 1</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="id">Id</label>
+          <input className="form-control" id="id" name="id" placeholder="Enter an id #" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input className="form-control" id="title" name="title" placeholder="Enter a title for the product" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price</label>
+          <input className="form-control" id="price" name="price" placeholder="Enter a price for the product $" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <textarea className="form-control" id="description" name="description" placeholder="Enter a description of the product" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="category">Category</label>
+          <input className="form-control" id="category" name="category" placeholder="Enter a category for the product" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">Image</label>
+          <input className="form-control" id="image" name="image" placeholder="Enter an image link for the product" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="rate">Rate</label>
+          <input className="form-control" id="rate" name="rate" placeholder="Enter a rating out of 5 for the product" required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="count">Count</label>
+          <input className="form-control" id="count" name="count" placeholder="Enter a product count" required/>
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
 
-      <div id="showData"></div>
-    </form>
-
+        <div id="showData"></div>
+      </form>
+    </div>
     
   );
 };

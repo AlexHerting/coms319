@@ -6,6 +6,7 @@ import Display1 from './Display1';
 import Display2 from './Display2';
 import Display3 from './Display3';
 import Display4 from './Display4';
+import Credits from './Credits';
 
 const App = () => {
   const [display, setDisplay] = useState('display1');
@@ -28,6 +29,9 @@ const App = () => {
     case 'display4':
       displayComponent = <Display4 />;
       break;
+    case 'credits':
+      displayComponent = <Credits />;
+      break;
     default:
       displayComponent = <Display1 />;
   }
@@ -49,6 +53,7 @@ const App = () => {
         <button onClick={() => handleDisplayChange('display2')}>See all products</button>
         <button onClick={() => handleDisplayChange('display3')}>Update a product</button>
         <button onClick={() => handleDisplayChange('display4')}>Delete a product</button>
+        <button onClick={() => handleDisplayChange('credits')}>Credits</button>
       </div>
       <div>{displayComponent}</div>
     </div>
