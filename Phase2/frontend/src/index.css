@@ -11,3 +11,124 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background-color: #fdf1ec;
+}
+
+.wrapper {
+  max-width: 654px;
+  margin: 50px auto;
+  border-radius: 7px;
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.product-img {
+  float: none;
+  height: auto;
+  width: 100%;
+}
+
+.product-img img {
+  border-radius: 7px 7px 0 0;
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  float: none;
+  border-radius: 0 0 7px 7px;
+  background-color: #ffffff;
+}
+
+.product-text {
+  height: auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.product-text h1 {
+  margin: 0;
+  padding-top: 0;
+  font-size: 28px;
+  color: #474747;
+}
+
+.product-text h2 {
+  margin: 0 0 15px;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  letter-spacing: 0.2em;
+}
+
+.product-text p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7em;
+  font-weight: lighter;
+}
+
+.product-price-btn {
+  padding: 15px 20px;
+}
+
+.product-price-btn p {
+  margin: 0;
+  font-size: 24px;
+}
+
+span {
+  font-size: 28px;
+}
+
+.product-price-btn button {
+  margin: 10px 0 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .product-img {
+    float: left;
+    width: 50%;
+    height: auto;
+  }
+
+  .product-info {
+    float: right;
+    width: 50%;
+    border-radius: 0 7px 7px 0;
+  }
+
+  .product-text h1 {
+    font-size: 34px;
+  }
+
+  .product-text h2 {
+    margin-bottom: 30px;
+  }
+
+  .product-text p {
+    height: auto;
+  }
+
+  .product-price-btn {
+    padding: 20px 30px;
+    height: auto;
+  }
+
+  .product-price-btn p {
+    font-size: 28px;
+  }
+
+  span {
+    font-size: 34px;
+  }
+
+  .product-price-btn button {
+    margin-top: 0;
+  }
+}

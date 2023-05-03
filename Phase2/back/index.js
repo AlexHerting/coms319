@@ -85,11 +85,17 @@ const Product = require('./dataSchema')
 
 app.put('/products/:id', async (req, res) => {
   try {
+    const query = { _id: req.params.id };
+    const update = {
+      $set: {
+        'rating.rate': req.body.rating.rate,
+        'rating.count': req.body.rating.count
+      }
+    };
 
-    const query = { _id: req.body._id };
-    const update = { $set: { price: req.body.price } };
-    await Product.findOneAndUpdate(query, update, {returnOriginal: false});
+    await Product.findOneAndUpdate(query, update, { returnOriginal: false });
 
+    res.status(200).json({ message: 'Product rating updated successfully' });
   } catch (err) {
     console.log(err);
     res.status(500).send(err);

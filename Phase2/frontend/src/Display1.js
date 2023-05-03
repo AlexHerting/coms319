@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Display1 = () => {
   const [products, setProducts] = useState([]);
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [rating, setRating] = useState(0);
 
   const handleGet = () => {
     fetch('http://localhost:8081/allProducts')
@@ -22,22 +23,88 @@ const Display1 = () => {
 
   const handleGoBack = () => {
     setSelectedItemId(null);
+    handleGet();
   };
+
+  
+  const handleRatingChange = (event) => {
+    const newRating = parseInt(event.target.value, 10);
+    setRating(newRating);
+  };
+
+  const handleSubmit = () => {
+    const currentRate = selectedProduct.rating.rate;
+    const currentCount = selectedProduct.rating.count;
+  
+    const newRate = ((currentRate * currentCount + rating) / (currentCount + 1)).toFixed(2);
+    const newCount = currentCount + 1;
+  
+    const updatedProduct = {
+      ...selectedProduct,
+      rating: { rate: newRate, count: newCount },
+    };
+  
+    fetch(`http://localhost:8081/products/${selectedProduct._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedProduct),
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log('Product rating updated successfully');
+          handleGet();
+        } else {
+          throw new Error('Error updating product rating');
+        }
+      })
+      .catch(error => {
+        console.error('Error updating product rating:', error);
+      });
+  
+    setRating(0);
+  };
+  
+  
+  
 
   const selectedProduct = products.find(product => product._id === selectedItemId);
 
   if (selectedItemId && selectedProduct) {
     return (
-    <div>
+      <div>
         <button onClick={handleGoBack}>Go Back</button>
-        <div>
-          <h4>{selectedProduct.title}</h4>
-          <p>{selectedProduct.description}</p>
-          <p>Price: ${selectedProduct.price}</p>
-
-        
+        <div className="wrapper">
+          <div className="product-img">
+            <img src={selectedProduct.image} height="420" width="327" alt="Product" />
+          </div>
+          <div className="product-info">
+            <div className="product-text">
+              <h1>{selectedProduct.title}</h1>
+              <h2>{selectedProduct.category}</h2>
+              <p>{selectedProduct.description}</p>
+            </div>
+            <div className="product-price-btn">
+              <p>
+                ${selectedProduct.price}
+              </p>
+              <p>{selectedProduct.rating.rate}/5 Stars</p>
+              <div>
+                <select value={rating} onChange={handleRatingChange}>
+                  <option value={0}>Select Rating</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                </select>
+                <button type="button" onClick={handleSubmit}>Submit</button>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     );
   }
 
@@ -61,7 +128,8 @@ const Display1 = () => {
                           View item <i className="fa-solid fa-cart-shopping"></i>
                         </button>
                       </div>
-                      <small className="text-muted">${product.price}</small>
+                      <small className="text-muted">${product.price}</small>    
+                      <small className="text-muted">{product.rating.rate} stars ({product.rating.count})</small>
                     </div>
                   </div>
                 </div>
