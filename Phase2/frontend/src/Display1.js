@@ -66,7 +66,36 @@ const Display1 = () => {
     setRating(0);
   };
   
+  const [showConfirmation, setShowConfirmation] = useState(null);
+  const [productIdToDelete, setProductIdToDelete] = useState(null);
   
+  function handleConfirmDelete(productId) {
+    setProductIdToDelete(productId);
+    setShowConfirmation(productId);
+  }
+  
+  function handleDeleteItemConfirmed(productId) {
+    // Send delete request to the server with the productId
+    fetch(`http://localhost:8081/delete/${productId}`, { method: 'DELETE' })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
+        // Handle success or update the UI accordingly
+        handleGet();
+      })
+      .catch(error => {
+        console.error('Error deleting the product:', error);
+        // Handle error or update the UI accordingly
+      });
+  
+    setShowConfirmation(null);
+  }
+  
+  function handleCancelDelete() {
+    setShowConfirmation(null);
+  }
+  
+
   
 
   const selectedProduct = products.find(product => product._id === selectedItemId);
@@ -110,35 +139,49 @@ const Display1 = () => {
 
   return (
     <main>
-      <button onClick={handleGet}>Refresh Products</button>
-
-      <div className="album py-5 bg-light">
-        <div className="container">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {products.map(product => (
-              <div className="col" key={product._id}>
-                <div className="card shadow-sm">
-                  <img src={product.image} alt={product.title} />
-                  <div className="card-body">
-                    <h4 className="product-name">{product.title}</h4>
-                    <p className="card-text" id="prodTxt1"></p>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="btn-group">
-                        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleViewItem(product._id)}>
-                          View item <i className="fa-solid fa-cart-shopping"></i>
-                        </button>
-                      </div>
-                      <small className="text-muted">${product.price}</small>    
-                      <small className="text-muted">{product.rating.rate} stars ({product.rating.count})</small>
+    <button onClick={handleGet}>Refresh Products</button>
+  
+    <div className="album py-5 bg-light">
+      <div className="container">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {products.map(product => (
+            <div className="col" key={product._id}>
+              <div className="card shadow-sm">
+                <img src={product.image} alt={product.title} />
+                <div className="card-body">
+                  <h4 className="product-name">{product.title}</h4>
+                  <p className="card-text" id="prodTxt1"></p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleViewItem(product._id)}>
+                        View item <i className="fa-solid fa-cart-shopping"></i>
+                      </button>
+                    </div>
+                    <small className="text-muted">${product.price}</small>    
+                    <small className="text-muted">{product.rating.rate} stars ({product.rating.count})</small>
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleConfirmDelete(product._id)}>
+                        Delete Item <i className="fa-solid fa-cart-shopping"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
+                {showConfirmation === product._id && (
+                  <div className="confirmation-modal">
+                    <p>Are you sure you want to delete this product?</p>
+                    <button onClick={() => handleDeleteItemConfirmed(product._id)}>Yes</button>
+                    <button onClick={handleCancelDelete}>No</button>
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    </main>
+    </div>
+  </main>
+  
+  
   );
 };
 

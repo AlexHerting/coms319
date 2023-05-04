@@ -105,17 +105,17 @@ app.put('/products/:id', async (req, res) => {
   }
 });
 
-app.delete("/delete", async (req, res) => {
-    console.log("Delete:", req.body);
-    try {
-      const query = { _id: req.body._id };
-      await Product.deleteOne(query);
-      const messageResponse = {
-        message: `Product ${req.body._id} deleted correctly`,
-      };
-      res.send(JSON.stringify(messageResponse));
-    } catch (err) {
-      console.log("Error while deleting:", err);
-      res.status(500).json({ error: "Failed to delete the product " });
-    }
+app.delete("/delete/:id", async (req, res) => {
+  console.log("Delete:", req.params.id);
+  try {
+    const query = { _id: req.params.id };
+    await Product.deleteOne(query);
+    const messageResponse = {
+      message: `Product ${req.params.id} deleted correctly`,
+    };
+    res.send(JSON.stringify(messageResponse));
+  } catch (err) {
+    console.log("Error while deleting:", err);
+    res.status(500).json({ error: "Failed to delete the product" });
+  }
 });
