@@ -7,7 +7,6 @@ import Display3 from './Display3';
 import Display4 from './Display4';
 import Credits from './Credits';
 
-
 const App = () => {
   const [display, setDisplay] = useState('display1');
 

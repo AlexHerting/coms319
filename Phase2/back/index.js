@@ -4,8 +4,21 @@ const url = "mongodb://127.0.0.1:27017";
 const dbName = "catalog";
 const client = new MongoClient(url);
 const db = client.db(dbName);
-
 const mongoose = require("mongoose");
+const Product = require('./dataSchema.js');
+
+var express = require("express");
+var cors = require("cors");
+var app = express();
+var fs = require("fs");
+var bodyParser = require("body-parser");
+app.use(cors());
+// app.use(express.json);
+app.use(bodyParser.json());
+
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
+
 mongoose.connect("mongodb://127.0.0.1:27017/catalog",
 {
 dbName: "catalog",
@@ -14,13 +27,6 @@ useUnifiedTopology: true,
 }
 );
 
-var express = require("express");
-var cors = require("cors");
-var app = express();
-var fs = require("fs");
-var bodyParser = require("body-parser");
-app.use(cors());
-app.use(bodyParser.json());
 const port = "8081";
 const host = "localhost";
 app.listen(port, () => {
@@ -79,9 +85,6 @@ app.get('/:id', async (req, res) => {
       res.status(500).json({ error: 'An error occurred while adding the user.' });
     }
   });
-
-  
-const Product = require('./dataSchema')
 
 app.put('/products/:id', async (req, res) => {
   try {
