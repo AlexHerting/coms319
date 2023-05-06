@@ -53,7 +53,7 @@ const App = () => {
                   <a className="nav-link" onClick={() => handleDisplayChange('display3')}>Headsets</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={() => handleDisplayChange('display4')}>About Us</a>
+                  <a className="nav-link" onClick={() => handleDisplayChange('credits')}>About Us</a>
                 </li>
               </ul>
             </div>

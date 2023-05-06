@@ -13,9 +13,7 @@ const Credits = () => {
         <h4>Student 2: Ter Xun Ng - terxun@iastate.edu</h4>
         <p><br></br></p>
         <h4>Introduction:</h4>
-        <p>This projects works by utilizing CRUD of the REST API through the use of a Nodejs backend and a React frontend. <br></br>
-            The website has 4 buttons at the top that allows the user to select one of the CRUD operation to perform, with the Display 1 being
-            creating a new product, Display 2 being displaying all products, Display 3 being updating a product's price, and Display 4 being deleting a product.
+        <p>This is phase 2 of the final project. We use get, put, delete, and post methods in the backend to make this project function <br></br> We have also decided to use mongo db as we are much more familiar and comfortable with using it. <br></br>You will notice that we have some unused displays, these are for the final project and were not necesarry for this phase.
         </p>
       </div>
       
