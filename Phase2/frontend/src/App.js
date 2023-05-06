@@ -1,5 +1,3 @@
-import './App.css';
-// App.js
 import React, { useState } from 'react';
 import Display1 from './Display1';
 import Display2 from './Display2';
@@ -8,11 +6,15 @@ import Display4 from './Display4';
 import Credits from './Credits';
 
 const App = () => {
-  const [display, setDisplay] = useState('display1');
+  const [display, setDisplay] = useState('display4');
 
   const handleDisplayChange = (displayName) => {
     setDisplay(displayName);
   };
+
+  const handleLoginSuccess = () => {
+    setDisplay('display1');
+  }
 
   let displayComponent;
   switch (display) {
@@ -26,7 +28,7 @@ const App = () => {
       displayComponent = <Display3 />;
       break;
     case 'display4':
-      displayComponent = <Display4 />;
+      displayComponent = <Display4 onLoginSuccess={handleLoginSuccess} />;
       break;
     case 'credits':
       displayComponent = <Credits />;
@@ -37,9 +39,8 @@ const App = () => {
 
   return (
     <div>
-
-
-      <nav className="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
+      {display !== 'display4' && (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
           <div className="container-fluid">
             <div className="collapse navbar-collapse" id="navbarsExample09">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -59,19 +60,11 @@ const App = () => {
             </div>
           </div>
         </nav>
+      )}
 
-        <div>{displayComponent}</div>
-
-
-
-
-
+      <div>{displayComponent}</div>
     </div>
-
   );
 };
-
-
-
 
 export default App;

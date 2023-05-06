@@ -48,6 +48,7 @@ app.get("/allProducts", async (req, res) => {
     res.send(results);
 });
 
+
 app.get('/:id', async (req, res) => {
     const productId = req.params.id;
   
@@ -119,3 +120,40 @@ app.delete("/delete/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to delete the product" });
   }
 });
+
+
+app.post("/login", async (req, res) => {
+  await client.connect();
+  console.log("Node connected successfully to MongoDB");
+  
+  const { _id, Password } = req.body;
+  
+  const query = { _id, Password };
+  const result = await db.collection("login").findOne(query);
+  
+  if (result) {
+  console.log(`Successful login for user: ${result._id}`);
+  res.status(200).send({ message: "Success" });
+  } else {
+  console.log("Invalid username or password");
+  res.status(401).send({ message: "Invalid username or password" });
+  }
+  });
+
+  
+  app.post('/create-account', async (req, res) => {
+    try {
+      const { _id, Password } = req.body;
+      const newDocument = {
+        _id,
+        Password
+      };
+      const results = await db.collection("login").insertOne(newDocument);
+      res.status(200).json(results.ops[0]);
+    } catch (error) {
+      console.error('Error adding user:', error);
+      res.status(500).json({ error: 'An error occurred while adding the user.' });
+    }
+  });
+
+  
