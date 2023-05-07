@@ -7,7 +7,12 @@ import Credits from './Credits';
 import AboutUs from './AboutUs';
 
 const App = () => {
-  const [display, setDisplay] = useState('display4');
+  const [display, setDisplay] = useState('display1');
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  const handleLogSuccess = (username) => {
+    setLoggedInUser(username);
+  };
 
   const handleDisplayChange = (displayName) => {
     setDisplay(displayName);
@@ -15,6 +20,10 @@ const App = () => {
 
   const handleLoginSuccess = () => {
     setDisplay('display1');
+  }
+
+  const handleShowLoginForm = () => {
+    setDisplay('display4');
   }
 
   let displayComponent;
@@ -29,7 +38,7 @@ const App = () => {
       displayComponent = <Display3 />;
       break;
     case 'display4':
-      displayComponent = <Display4 onLoginSuccess={handleLoginSuccess} />;
+      displayComponent = <Display4 onLoginSuccess={handleLoginSuccess} handleLogSuccess={handleLogSuccess}/>;
       break;
     case 'aboutus':
       displayComponent = <AboutUs />;
@@ -61,6 +70,7 @@ const App = () => {
                   <a className="nav-link" onClick={() => handleDisplayChange('credits')}>Credits</a>
                 </li>
               </ul>
+              <p>Welcome {loggedInUser}! <button onClick={handleShowLoginForm}>Log Out</button></p>
             </div>
           </div>
         </nav>

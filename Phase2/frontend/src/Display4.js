@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Display4 = ({ onLoginSuccess }) => {
+const Display4 = ({ onLoginSuccess, handleLogSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,6 +25,7 @@ const Display4 = ({ onLoginSuccess }) => {
     if (response.ok) {
       console.log('User logged in');
       onLoginSuccess(); // Call the onLoginSuccess prop to change the display
+      handleLogSuccess(username);
     } else {
       console.log(data.message);
     }
@@ -59,10 +60,12 @@ const Display4 = ({ onLoginSuccess }) => {
     if (createAccountResponse.ok) {
       console.log('Account created');
       onLoginSuccess(); // Call the onLoginSuccess prop to change the display
+      handleLogSuccess(username);
 
     } else {
       console.log(createAccountData.message);
       onLoginSuccess();
+      handleLogSuccess(username);
     }
   };
   

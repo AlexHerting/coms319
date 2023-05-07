@@ -5,6 +5,7 @@ const Display1 = () => {
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [rating, setRating] = useState(0);
 
+
   const handleGet = () => {
     fetch('http://localhost:8081/allProducts')
       .then(response => response.json())
