@@ -141,19 +141,19 @@ app.post("/login", async (req, res) => {
   });
 
   
-  app.post('/create-account', async (req, res) => {
-    try {
-      const { _id, Password } = req.body;
-      const newDocument = {
-        _id,
-        Password
-      };
-      const results = await db.collection("login").insertOne(newDocument);
-      res.status(200).json(results.ops[0]);
-    } catch (error) {
-      console.error('Error adding user:', error);
-      res.status(500).json({ error: 'An error occurred while adding the user.' });
-    }
-  });
+app.post('/create-account', async (req, res) => {
+  try {
+    const { _id, Password } = req.body;
+    const newDocument = {
+      _id,
+      Password
+    };
+    const results = await db.collection("login").insertOne(newDocument);
+    res.status(200).json(results.ops[0]);
+  } catch (error) {
+    console.error('Error adding user:', error);
+    res.status(500).json({ error: 'An error occurred while adding the user.' });
+  }
+});
 
   

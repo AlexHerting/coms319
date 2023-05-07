@@ -4,6 +4,7 @@ import Display2 from './Display2';
 import Display3 from './Display3';
 import Display4 from './Display4';
 import Credits from './Credits';
+import AboutUs from './AboutUs';
 
 const App = () => {
   const [display, setDisplay] = useState('display4');
@@ -30,6 +31,9 @@ const App = () => {
     case 'display4':
       displayComponent = <Display4 onLoginSuccess={handleLoginSuccess} />;
       break;
+    case 'aboutus':
+      displayComponent = <AboutUs />;
+      break;
     case 'credits':
       displayComponent = <Credits />;
       break;
@@ -48,13 +52,13 @@ const App = () => {
                   <a className="nav-link active" aria-current="page" onClick={() => handleDisplayChange('display1')}>All Products</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={() => handleDisplayChange('display2')} >Search Items</a>
+                  <a className="nav-link" onClick={() => handleDisplayChange('display2')} >Create Product</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={() => handleDisplayChange('display3')}>Headsets</a>
+                  <a className="nav-link" onClick={() => handleDisplayChange('aboutus')}>About Us</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={() => handleDisplayChange('credits')}>About Us</a>
+                  <a className="nav-link" onClick={() => handleDisplayChange('credits')}>Credits</a>
                 </li>
               </ul>
             </div>
