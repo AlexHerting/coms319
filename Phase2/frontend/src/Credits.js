@@ -13,7 +13,7 @@ const Credits = () => {
           <h4>Student 2: Ter Xun Ng - terxun@iastate.edu</h4>
           <p><br></br></p>
           <h4>Introduction:</h4>
-          <p>This is the finished version of our final project. We use GET, PUT, DELETE, and POST methods in the backend to allow basic roundtrip functionality on our website and have also decided to use MongoDB as our database as we are much more familiar and comfortable with using it..<br></br> 
+          <p>This is the finished version of our final project. This is the finished version of our final project. We use GET, PUT, DELETE, and POST methods in the backend to allow basic roundtrip functionality on our website and have also decided to use MongoDB as our database as we are much more familiar and comfortable with using it...<br></br> 
           <br></br>
           The website works by first automatically logging you in as a guest user. The user can then choose to log out and re-login as a registered user. The default page of the website would be the
           store page, which has a search functionality, a "checkout" button to go to a cart view, and a "view item" button to view individual items, which can then be used to add item
