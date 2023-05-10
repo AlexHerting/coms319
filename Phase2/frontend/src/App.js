@@ -58,19 +58,22 @@ const App = () => {
             <div className="collapse navbar-collapse" id="navbarsExample09">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" onClick={() => handleDisplayChange('display1')}>All Products</a>
+                  <a className="nav-link active" aria-current="page" onClick={() => handleDisplayChange('display1')}>Store</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={() => handleDisplayChange('display2')} >Create Product</a>
+                  <a className="nav-link" onClick={() => handleDisplayChange('display2')} >Create</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={() => handleDisplayChange('aboutus')}>About Us</a>
+                  <a className="nav-link" onClick={() => handleDisplayChange('aboutus')}>About</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" onClick={() => handleDisplayChange('credits')}>Credits</a>
                 </li>
               </ul>
-              <p>Welcome {loggedInUser}! <button onClick={handleShowLoginForm}>Log Out</button></p>
+              <p style={{paddingTop:12, paddingRight: 12}}>Welcome {loggedInUser}!</p>
+              <button type="button" className="btn btn-sm btn-outline-secondary" onClick={handleShowLoginForm} style={{padding:5}}>
+              Log Out <i className="fa-solid fa-cart-shopping"></i>
+              </button>
             </div>
           </div>
         </nav>

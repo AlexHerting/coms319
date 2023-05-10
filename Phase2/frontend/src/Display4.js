@@ -81,7 +81,7 @@ const Display4 = ({ onLoginSuccess, handleLogSuccess }) => {
                 <input
                   type="text"
                   class="login__input"
-                  placeholder="User name / Email"
+                  placeholder="Username / Email"
                   value={username}
                   onChange={handleUsernameChange}
                 />
@@ -97,11 +97,11 @@ const Display4 = ({ onLoginSuccess, handleLogSuccess }) => {
                 />
               </div>
               <button class="button login__submit" onClick={handleLoginSubmit}>
-                <span class="button__text">Log In Now</span>
+                <span class="button__text">Log In</span>
                 <i class="button__icon fas fa-chevron-right"></i>
               </button>
               <button class="button login__submit" onClick={handleCreateAccountSubmit}>
-                <span class="button__text">New User</span>
+                <span class="button__text">Guest User</span>
                 <i class="button__icon fas fa-chevron-right"></i>
               </button>
             </form>
